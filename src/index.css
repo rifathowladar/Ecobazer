@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+@theme {
+    --color-primary: #00B207;
+    --color-badgone: #EA4B48;
+    --color-badgtwo: #2388FF;
+    --text-hsize: 32px;
+
+}
