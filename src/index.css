@@ -4,6 +4,11 @@
     --color-primary: #00B207;
     --color-badgone: #EA4B48;
     --color-badgtwo: #2388FF;
+    --color-gry: #F2F2F2;
+    --color-grydp: #666666;
     --text-hsize: 32px;
-
+    --font-pop: "Poppins", sans-serif;
+}
+*{
+    @apply font-pop
 }
