@@ -3,6 +3,7 @@ import Container from "./layout/Container"
 import { CiLocationOn } from "react-icons/ci";
 import { FaAngleDown } from "react-icons/fa";
 import useDropdown from './../hooks/useDropdown';
+import { Link } from "react-router";
 
 const TopBar = () => {
     const [eng,setEng] = useState(false)
@@ -41,7 +42,7 @@ const TopBar = () => {
                         </div>
                         }
                     </div>
-                    <div className="flex items-center relative after:w-px after:h-3.75 after:content-[''] after:absolute after:top-0 after:-left-2.5 after:bg-[#E5E5E5]">Sign In / Sign Up</div>
+                    <div className="flex items-center relative after:w-px after:h-3.75 after:content-[''] after:absolute after:top-0 after:-left-2.5 after:bg-[#E5E5E5]"><Link to="/login">Sign In</Link>  / <Link to="/registration">Sign Up</Link></div>
                 </div>
             </div>
         </Container>

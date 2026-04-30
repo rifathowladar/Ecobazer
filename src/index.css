@@ -7,8 +7,14 @@
     --color-gry: #F2F2F2;
     --color-grydp: #666666;
     --text-hsize: 32px;
-    --font-pop: "Poppins", sans-serif;
 }
-*{
-    @apply font-pop
+/* *{
+    @apply font-Poppins
 }
+
+@font-face {
+    font-family: Poppins;
+    src: url('./assets/font/Poppins-Regular.ttf') format("truetype");
+    font-weight: normal;
+    font-style: normal;
+} */
