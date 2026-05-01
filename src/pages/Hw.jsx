@@ -1,18 +1,95 @@
-import Container from '../components/layout/Container'
 import { useRef, useState } from "react";
+import Container from "../components/layout/Container";
+import useDropdown from "../hooks/useDropdown";
 
 const Hw = () => {
+  const [modal, setModal] = useState(false);
+  const modalRef = useRef(null);
+  const [sidebar, setSidebar] = useState(false);
+  const sidebarRef = useRef(null);
+  const [tooltip, settooltip] = useState(false);
+  const tooltipRef = useRef(null);
+
+  useDropdown(modalRef, () => setModal(false), modal);
+  useDropdown(sidebarRef, () => setSidebar(false), sidebar);
+  useDropdown(tooltipRef, () => settooltip(false), tooltip);
+
   return (
     <Container>
-        <div className="">Modal ,Dialog, popup
-            <div className="">
-                
-            </div>
-        </div>
-        <div className="">Sidebar ,Drawer, panel</div>
-        <div className="">Tooltip ,Popover, hint</div>
-    </Container>
-  )
-}
+      <div className="p-6">
+        <button
+          onClick={() => setModal(true)}
+          className="btn"
+        >
+          Open Modal
+        </button>
 
-export default Hw
+        {modal && (
+          <div className="fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm z-50">
+            
+            <div
+              ref={modalRef}
+              className="w-[90%] max-w-md bg-white rounded-2xl shadow-xl p-6 animate-fadeIn"
+            >
+              <h2 className="text-xl font-semibold text-gray-800 mb-3">
+                My Modal
+              </h2>
+
+              <p className="text-gray-600 mb-5">
+                This is Tailwind CSS modal.
+              </p>
+            </div>
+          </div>
+        )}
+      </div>
+      {/* Sidebar */}
+      <div>
+        <button
+          onClick={() => setSidebar(true)}
+          className="btn"
+        >
+          Open Sidebar
+        </button>
+        {sidebar && (
+          <div className="fixed inset-0 bg-black/40 z-40">
+            <div
+              ref={sidebarRef}
+              className="fixed top-0 left-0 h-full w-72 bg-white shadow-xl p-5 transform transition-transform duration-200"
+            >
+              <h2 className="text-lg font-semibold mb-4">Sidebar</h2>
+              <ul className="space-y-2 text-gray-700">
+                <li>Dashboard</li>
+                <li>This is Tailwind CSS Sidebar</li>
+                <li>Settings</li>
+              </ul>
+            </div>
+          </div>
+        )}
+      </div>
+      {/* Tooltip */}
+      <div className="flex items-center justify-center h-screen">
+      <div className="relative inline-block">
+        <button
+          onClick={() => settooltip(!tooltip)}
+          className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+        >
+          Show Tooltip
+        </button>
+        {tooltip && (
+          <div
+            ref={tooltipRef}
+            className="absolute left-1/2 -translate-x-1/2 top-full mt-3 
+                       bg-gray-900 text-white text-sm px-3 py-2 rounded-lg 
+                       shadow-lg whitespace-nowrap z-50"
+          >
+            This is a Tailwind CSS tooltip .
+          </div>
+        )}
+
+      </div>
+    </div>
+    </Container>
+  );
+};
+
+export default Hw;

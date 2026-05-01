@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Registration from './pages/Registration';
 import Login from './pages/Login';
 import MainLayout from './components/layout/MainLayout';
+import Hw from './pages/Hw';
 
 
 const App = () => {
@@ -14,6 +15,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/registration" element={<Registration />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/hw" element={<Hw />} />
         </Route>
       </Routes>
     </>
