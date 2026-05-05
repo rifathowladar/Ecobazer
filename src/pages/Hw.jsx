@@ -16,20 +16,20 @@ const Hw = () => {
 
   return (
     <Container>
-      <div className="p-6">
+      <div className="py-6">
         <button
           onClick={() => setModal(true)}
-          className="btn"
+          className="px-4 py-2 bg-green-600 text-white rounded"
         >
           Open Modal
         </button>
 
         {modal && (
-          <div className="fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm z-50">
+          <div className="fixed inset-0 flex items-center justify-center bg-black/50 ">
             
             <div
               ref={modalRef}
-              className="w-[90%] max-w-md bg-white rounded-2xl shadow-xl p-6 animate-fadeIn"
+              className="w-[90%] max-w-md bg-white rounded-2xl p-6"
             >
               <h2 className="text-xl font-semibold text-gray-800 mb-3">
                 My Modal
@@ -46,15 +46,15 @@ const Hw = () => {
       <div>
         <button
           onClick={() => setSidebar(true)}
-          className="btn"
+          className="px-4 py-2 bg-green-600 text-white rounded"
         >
           Open Sidebar
         </button>
         {sidebar && (
-          <div className="fixed inset-0 bg-black/40 z-40">
+          <div className="fixed inset-0 bg-black/40">
             <div
               ref={sidebarRef}
-              className="fixed top-0 left-0 h-full w-72 bg-white shadow-xl p-5 transform transition-transform duration-200"
+              className="fixed top-0 left-0 h-full w-72 bg-white p-5 duration-500"
             >
               <h2 className="text-lg font-semibold mb-4">Sidebar</h2>
               <ul className="space-y-2 text-gray-700">
@@ -67,20 +67,19 @@ const Hw = () => {
         )}
       </div>
       {/* Tooltip */}
-      <div className="flex items-center justify-center h-screen">
-      <div className="relative inline-block">
+      <div className="pt-5">
+      <div className="">
         <button
           onClick={() => settooltip(!tooltip)}
-          className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+          className="px-4 py-2 bg-green-600 text-white rounded"
         >
           Show Tooltip
         </button>
         {tooltip && (
           <div
             ref={tooltipRef}
-            className="absolute left-1/2 -translate-x-1/2 top-full mt-3 
-                       bg-gray-900 text-white text-sm px-3 py-2 rounded-lg 
-                       shadow-lg whitespace-nowrap z-50"
+            className="absolute mt-3 
+                       bg-gray-900 text-white text-sm px-3 py-2 rounded-lg"
           >
             This is a Tailwind CSS tooltip .
           </div>
@@ -93,3 +92,4 @@ const Hw = () => {
 };
 
 export default Hw;
+
