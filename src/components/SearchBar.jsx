@@ -13,7 +13,7 @@ const SearchBar = () => {
             </div>
             <div className="">
                 <input className='border border-gry w-122.25 py-3 pl-11 placeholder:text-[#808080] placeholder:text-sm leading-1 rounded' type='text' placeholder='Search'/>
-                <CiSearch className='relative top-[-30px] left-4'/>
+                <CiSearch className='relative top-7.5 left-4'/>
             </div>
             <div className="">3</div>
         </div>
