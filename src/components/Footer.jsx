@@ -6,7 +6,7 @@ import { Link } from 'react-router'
 
 const Footer = () => {
   return (
-    <div className="bg-black w-full">
+    <div className="bg-[#1A1A1A] w-full">
         <Container>
             <div className="flex justify-between items-center py-10 text-white">
                 <div className="">

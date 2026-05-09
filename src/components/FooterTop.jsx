@@ -18,14 +18,14 @@ const FooterTop = () => {
                 </div>
                 <div className="flex">
                     <div className="relative">
-                        <input className='border bg-white border-[#808080] border-r-0 w-122.25 py-3 pl-11  placeholder:text-[#808080] placeholder:text-sm rounded-tl-full rounded-bl-full outline-none' type='text' placeholder='Your email address'/>
+                        <input className='border bg-white border-[#808080] border-r-0 w-100 py-3 pl-11  placeholder:text-[#808080] placeholder:text-sm rounded-tl-full rounded-bl-full outline-none' type='text' placeholder='Your email address'/>
                         <button className="font-semibold text-sm bg-primary text-white px-10 py-4 relative top-[-2px] left-[-20px] rounded-full">Subscribe</button>
                     </div>
                     <div className="flex gap-4 ml-4">
-                        <Link to="" className="w-10 h-10 rounded-full flex justify-center items-center hover:bg-primary hover:text-white cursor-pointer"><FaFacebookF className="text-lg"/></Link>
-                        <Link to="" className="w-10 h-10 rounded-full flex justify-center items-center hover:bg-primary hover:text-white cursor-pointer"><FaTwitter className="text-lg"/></Link>
-                        <Link to="" className="w-10 h-10 rounded-full flex justify-center items-center hover:bg-primary hover:text-white cursor-pointer"><FaPinterestP className="text-lg"/></Link>
-                        <Link to="" className="w-10 h-10 rounded-full flex justify-center items-center hover:bg-primary hover:text-white cursor-pointer"><FaInstagram className="text-lg"/></Link>
+                        <Link to="" className="footerIcon"><FaFacebookF className="text-lg"/></Link>
+                        <Link to="" className="footerIcon"><FaTwitter className="text-lg"/></Link>
+                        <Link to="" className="footerIcon"><FaPinterestP className="text-lg"/></Link>
+                        <Link to="" className="footerIcon"><FaInstagram className="text-lg"/></Link>
                     </div>
                 </div>
             </div>
