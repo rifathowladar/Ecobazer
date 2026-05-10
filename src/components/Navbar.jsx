@@ -20,6 +20,7 @@ import { RiCake3Line } from "react-icons/ri";
 import { GiCampCookingPot } from "react-icons/gi";
 import { FaBowlFood } from "react-icons/fa6";
 import { FaPlus } from "react-icons/fa6";
+import { FiPhoneCall } from "react-icons/fi";
 
 
 const Navbar = () => {
@@ -50,7 +51,6 @@ const Navbar = () => {
                       ref={sidebarRef}
                       className="fixed top-0 left-0 h-full w-72 bg-white p-5 duration-1000"
                     >
-                      <h5>Navigation</h5>
                       <ul className="space-y-2 text-gray-700">
                         <Link to="#"><li className="sidebar"><MdDashboard/>Dashboard</li></Link>
                         <Link to="#"><li className="sidebar"><LuRefreshCw/>Order History</li></Link>
@@ -136,7 +136,7 @@ const Navbar = () => {
               <li><Link to="#">Contact Us</Link></li>
             </ul>
           </div>
-          <div className=""><p>(219) 555-0114</p></div>
+          <div className=""><Link to="tel:2195550114"><span className='flex text-sm gap-2'><FiPhoneCall className='text-2xl'/>(219) 555-0114</span></Link></div>
         </div>
       </Container>
     </div>

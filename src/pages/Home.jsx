@@ -5,7 +5,7 @@ import Hw from './Hw'
 const Home = () => {
     let data = useSelector(state=> console.log(state))
   return (
-    <div>
+    <div className="h-screen">
       Home
       {/* <Hw/> */}
     </div>
