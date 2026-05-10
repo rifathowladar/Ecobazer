@@ -42,7 +42,7 @@ const TopBar = () => {
                         </div>
                         }
                     </div>
-                    <div className="flex items-center relative after:w-px after:h-3.75 after:content-[''] after:absolute after:top-0 after:-left-2.5 after:bg-[#E5E5E5]"><Link to="/login">Sign In</Link>  / <Link to="/registration">Sign Up</Link></div>
+                    <div className="flex items-center relative after:w-px after:h-3.75 after:content-[''] after:absolute after:top-0 after:-left-2.5 after:bg-[#E5E5E5] gap-2"><Link to="/login">Sign In</Link>  / <Link to="/registration">Sign Up</Link></div>
                 </div>
             </div>
         </Container>

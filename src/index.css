@@ -27,3 +27,13 @@ body {
 .footerIcon{
   @apply w-10 h-10 rounded-full flex justify-center items-center hover:bg-primary hover:text-white cursor-pointer
 }
+.sidebar{
+  @apply  text-[#666666] text-base hover:text-[#1A1A1A] flex items-center gap-2.5 py-4
+}
+.categori{
+  @apply  text-[#666666] text-base hover:text-white flex items-center gap-2.5 py-4 px-5 hover:bg-primary
+}
+.homedropup{
+  @apply  text-[#666666] text-base hover:text-white flex items-center gap-2.5 py-4 px-2 hover:bg-primary
+}
+

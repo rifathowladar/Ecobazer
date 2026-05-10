@@ -22,10 +22,10 @@ const FooterTop = () => {
                         <button className="font-semibold text-sm bg-primary text-white px-10 py-4 relative top-[-2px] left-[-20px] rounded-full">Subscribe</button>
                     </div>
                     <div className="flex gap-4 ml-4">
-                        <Link to="" className="footerIcon"><FaFacebookF className="text-lg"/></Link>
-                        <Link to="" className="footerIcon"><FaTwitter className="text-lg"/></Link>
-                        <Link to="" className="footerIcon"><FaPinterestP className="text-lg"/></Link>
-                        <Link to="" className="footerIcon"><FaInstagram className="text-lg"/></Link>
+                        <Link to="#" className="footerIcon"><FaFacebookF className="text-lg"/></Link>
+                        <Link to="#" className="footerIcon"><FaTwitter className="text-lg"/></Link>
+                        <Link to="#" className="footerIcon"><FaPinterestP className="text-lg"/></Link>
+                        <Link to="#" className="footerIcon"><FaInstagram className="text-lg"/></Link>
                     </div>
                 </div>
             </div>
