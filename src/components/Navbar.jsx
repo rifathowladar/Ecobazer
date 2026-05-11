@@ -38,7 +38,7 @@ const Navbar = () => {
   return (
     <div className="bg-[#1A1A1A] text-white">
       <Container>
-        <div className="flex justify-between items-center w-full">
+        <div ref={navRef} className="flex justify-between items-center w-full">
           <div className="flex">
             {/* sidebar */}
             <div className="relative flex">
@@ -63,12 +63,12 @@ const Navbar = () => {
                   </div>
                 )}
                 {/* Categories */}
-            <div onMouseEnter={() => setCategories(true)} className='flex items-center cursor-pointer bg-[#333333] px-15.5' ref={categoriesRef}>
-              <span className='text-md font-bold hover:text-primary'>
+            <div onMouseEnter={()=>setDropdown("categories")} className='flex items-center cursor-pointer bg-[#333333] px-13.5'>
+              <span className='flex items-center cursor-pointer gap-4 text-md font-bold hover:text-primary'>
                 <Link to ="#">All Categories</Link>
-              </span>
                 <FaAngleDown/>
-                {categories &&
+              </span>
+                {dropdown === "categories" &&
                   <div className="absolute top-full left-0 mt-1 w-78 bg-white shadow-2xl overflow-hidden z-50">
                     <ul className="space-y-2 text-gray-700">
                       <Link to="#"><li className="categori"><CiApple className="text-2xl"/>Fresh Fruit</li></Link>
@@ -86,10 +86,10 @@ const Navbar = () => {
                 }
             </div>
             </div>
-            <ul ref={navRef} className="flex gap-x-8 text-sm items-center relative">
+            <ul className="flex gap-x-8 text-sm items-center relative">
               {/* Home */}
               <li onMouseEnter={()=>setDropdown("home")} className="ml-8">
-                <Link className="flex gap-1 items-center" to="#">Home <FaAngleDown/></Link>
+                <Link className="flex gap-1 items-center hover:text-primary" to="#">Home <FaAngleDown/></Link>
                 {dropdown === "home" &&
                   <div className="absolute top-full left-0.5 mt-1 w-22 bg-white rounded shadow-2xl overflow-hidden z-50">
                     <ul className="space-y-2 text-gray-700">
@@ -100,7 +100,7 @@ const Navbar = () => {
                 }
               </li>
               <li onMouseEnter={()=> setDropdown("shop")}>
-                <Link className="flex gap-1 items-center" to="#">Shop <FaAngleDown/></Link>
+                <Link className="flex gap-1 items-center hover:text-primary" to="#">Shop <FaAngleDown/></Link>
                 {dropdown === "shop" &&
                   <div className="absolute top-full left-24 mt-1 w-22 bg-white rounded shadow-2xl overflow-hidden z-50">
                     <ul className="space-y-2 text-gray-700">
@@ -111,7 +111,7 @@ const Navbar = () => {
                 }
               </li>
               <li onMouseEnter={()=> setDropdown("pages")}>
-                <Link className="flex gap-1 items-center" to="#">Pages <FaAngleDown/></Link>
+                <Link className="flex gap-1 items-center hover:text-primary" to="#">Pages <FaAngleDown/></Link>
                 {dropdown === "pages" &&
                   <div className="absolute top-full left-48 mt-1 w-20 bg-white rounded shadow-2xl overflow-hidden z-50">
                     <ul className="space-y-2 text-gray-700">
@@ -122,7 +122,7 @@ const Navbar = () => {
                 }
               </li>
               <li onMouseEnter={()=>setDropdown("blog")} >
-                <Link className="flex gap-1 items-center" to="#">Blog <FaAngleDown/></Link>
+                <Link className="flex gap-1 items-center hover:text-primary" to="#">Blog <FaAngleDown/></Link>
                 {dropdown === "blog" &&
                   <div className="absolute top-full left-70 mt-1 w-22 bg-white rounded shadow-2xl overflow-hidden z-50">
                     <ul className="space-y-2 text-gray-700">
@@ -132,11 +132,11 @@ const Navbar = () => {
                   </div>
                 }
               </li>
-              <li><Link to="#">About Us</Link></li>
-              <li><Link to="#">Contact Us</Link></li>
+              <li><Link className='hover:text-primary' to="#">About Us</Link></li>
+              <li><Link className='hover:text-primary' to="#">Contact Us</Link></li>
             </ul>
           </div>
-          <div className=""><Link to="tel:2195550114"><span className='flex text-sm gap-2'><FiPhoneCall className='text-2xl'/>(219) 555-0114</span></Link></div>
+          <div className=""><Link to="tel:2195550114"><span className='flex text-sm gap-2 hover:text-primary'><FiPhoneCall className='text-2xl'/>(219) 555-0114</span></Link></div>
         </div>
       </Container>
     </div>

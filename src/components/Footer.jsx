@@ -19,7 +19,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="">
-                    <h5 className="font-medium text-md mb-5">My Account</h5>
+                    <h5 className="font-medium text-md mb-5 hover:text-primary">My Account</h5>
                     <ul className="text-ms text-[#999999] flex flex-col gap-3">
                         <Link to="#" className="hover:text-white">My Account</Link>
                         <Link to="#" className="hover:text-white">Order History</Link>
@@ -28,7 +28,7 @@ const Footer = () => {
                     </ul>
                 </div>
                 <div className="">
-                    <h5 className="font-medium text-md mb-5">Helps</h5>
+                    <h5 className="font-medium text-md mb-5 hover:text-primary">Helps</h5>
                     <ul className="text-ms text-[#999999] flex flex-col gap-3">
                         <Link to="#" className="hover:text-white">Contact</Link>
                         <Link to="#" className="hover:text-white">Faqs</Link>
@@ -37,7 +37,7 @@ const Footer = () => {
                     </ul>
                 </div>
                 <div className="">
-                    <h5 className="font-medium text-md mb-5">Proxy</h5>
+                    <h5 className="font-medium text-md mb-5 hover:text-primary">Proxy</h5>
                     <ul className="text-ms text-[#999999] flex flex-col gap-3">
                         <Link to="#" className="hover:text-white">About</Link>
                         <Link to="#" className="hover:text-white">Shop</Link>
@@ -46,7 +46,7 @@ const Footer = () => {
                     </ul>
                 </div>
                 <div className="">
-                    <h5 className="font-medium text-md mb-5">Categories</h5>
+                    <h5 className="font-medium text-md mb-5 hover:text-primary">Categories</h5>
                     <ul className="text-ms text-[#999999] flex flex-col gap-3">
                         <Link to="#" className="hover:text-white">Fruit & Vegetables</Link>
                         <Link to="#" className="hover:text-white">Meat & Fish</Link>
