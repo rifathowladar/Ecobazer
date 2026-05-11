@@ -26,14 +26,11 @@ import { FiPhoneCall } from "react-icons/fi";
 const Navbar = () => {
   const [sidebar, setSidebar] = useState(false);
   const sidebarRef = useRef(null);
-  const [categories, setCategories] = useState(false);
-  const categoriesRef = useRef(null);
   const [dropdown, setDropdown] = useState("");
   const navRef = useRef(null);
 
   useDropdown(navRef, () => setDropdown(""), dropdown);
   useDropdown(sidebarRef, () => setSidebar(false), sidebar);
-  useDropdown(categoriesRef, () => setCategories(false), categories);
   
   return (
     <div className="bg-[#1A1A1A] text-white">
