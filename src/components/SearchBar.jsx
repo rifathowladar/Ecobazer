@@ -2,7 +2,7 @@ import Container from './layout/Container'
 import Logo from '../assets/image/Logo.webp'
 import React, { Suspense, lazy } from "react";
 import { CiSearch } from "react-icons/ci";
-import Heart from '../icons/Heart';
+import Heart from '../icons/Heart.jsx';
 import { SlHandbag } from "react-icons/sl";
 import { Link } from 'react-router';
 

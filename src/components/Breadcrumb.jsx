@@ -6,7 +6,6 @@ import { MdHome } from "react-icons/md";
 const Breadcrumb = () => {
   const pageName = useLocation()
   const arr = pageName.pathname.split('/')
-  console.log(pageName.pathname);
   
   return (
     <div style={{background: `url(${breadcrmb})`}}>

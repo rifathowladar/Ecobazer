@@ -23,7 +23,7 @@ const TopBar = () => {
                     <div onClick={() => setEng(!eng)} className="flex items-center gap-x-0.5" ref={engdropdownRef}>
                         Eng <FaAngleDown/>
                         {eng &&
-                        <div className="absolute top-9 bg-gry p-3">
+                        <div className="absolute top-9 z-50 bg-gry p-3">
                             <ul>
                                 <li>Bn</li>
                                 <li>CH</li>
@@ -34,7 +34,7 @@ const TopBar = () => {
                     <div onClick={() => setUsd(!usd)} className="flex items-center gap-x-0.5" ref={usddropdownRef}>
                         USD <FaAngleDown/>
                         {usd &&
-                        <div className="absolute top-9 bg-gry p-3">
+                        <div className="absolute z-50 top-9 bg-gry p-3">
                             <ul>
                                 <li>BTN</li>
                                 <li>NTD</li>

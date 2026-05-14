@@ -46,7 +46,7 @@ const Navbar = () => {
                   <div className="fixed inset-0 bg-black/40">
                     <div
                       ref={sidebarRef}
-                      className="fixed top-0 left-0 h-full w-72 bg-white p-5 duration-1000"
+                      className="fixed top-0 left-0 h-full z-50 w-72 bg-white p-5 duration-1000"
                     >
                       <ul className="space-y-2 text-gray-700">
                         <Link to="#"><li className="sidebar"><MdDashboard/>Dashboard</li></Link>
