@@ -1,29 +1,46 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router'
+import { Link, useNavigate } from 'react-router'
 import axios from 'axios'
+import { toast } from 'react-toastify'
+import { FaEye } from "react-icons/fa";
+import { FaEyeSlash } from "react-icons/fa6";
 
 const Registration = () => {
+  let navigate = useNavigate()
+  let [showPass, setShowPass] = useState(false)
+  let [confirmPass, setConfirmPass] = useState(false)
   const [regData, setRegData] = useState({
     email: "",
     password: "",
     confirmPassword: "",
     terms: false
   })
+
   let handleChange = (e)=>{
-    console.log(e.target.name, e.target.value);
     let name = e.target.name
     let value = e.target.value
     if(name !== 'terms'){
       setRegData({...regData, [name]:value})
     }else{
       setRegData({...regData, terms: !regData.terms})
-      {}
     }
   }
   let handleClick = async ()=>{
-    let date = await axios.post("http://localhost:5000/registration",regData);
-    console.log(date);
-    
+    let user = await axios.post("http://localhost:5000/registration",regData);
+    let {success, message} = user.data
+    console.log(success);
+    if (!success) {
+      toast.error(message, {
+      position: "top-center",
+      theme: "dark",
+      });
+    } else {
+      toast.success(message, {
+      position: "top-center",
+      theme: "light",
+      });
+      navigate("/login")
+    }
   }
 
 
@@ -31,8 +48,18 @@ const Registration = () => {
     <div className="w-130 bg-white p-6 shadow-md rounded-lg mx-auto my-20">
       <h3 className="font-semibold text-hsize text-center">Create Account</h3>
       <input onChange={handleChange} name='email' type="email" placeholder="Email" className="fromInput"/>
-      <input onChange={handleChange} name='password' type="password" placeholder="Password" className="fromInput"/>
-      <input onChange={handleChange} name='confirmPassword' type="password" placeholder="Confirm Password" className="fromInput"/>
+      <div className="relative mt-3">
+        <input onChange={handleChange} name='password' type={showPass ? "text" : "password"} placeholder="Password" className="fromInput"/>
+        <div className='absolute right-4 top-3/5 -translate-y-1/2 cursor-pointer text-gray-600 text-xl' onClick={() => setShowPass(!showPass)}>
+          {showPass ? <FaEye />: <FaEyeSlash />}
+        </div>
+      </div>
+      <div className="relative mt-3">
+        <input onChange={handleChange} name='confirmPassword' type={confirmPass ? "text" : "password"} placeholder="Confirm Password" className="fromInput"/>
+        <div className='absolute right-4 top-3/5 -translate-y-1/2 cursor-pointer text-gray-600 text-xl' onClick={() => setConfirmPass(!confirmPass)}>
+          {confirmPass ? <FaEye />: <FaEyeSlash />}
+        </div>
+      </div>
       <div className="flex items-center my-4 text-[#808080]">
         <label className="text-sm"><input onChange={handleChange} name='terms' type="checkbox" className="mr-2"/>Accept all terms & Conditions</label>
       </div>
