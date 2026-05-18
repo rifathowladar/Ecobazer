@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router';
+import { Link, useLocation } from 'react-router';
 import breadcrmb from '../assets/image/breadcrmb.webp'
 import Container from './layout/Container';
 import { MdHome } from "react-icons/md";
@@ -11,7 +11,9 @@ const Breadcrumb = () => {
     <div style={{background: `url(${breadcrmb})`}}>
         <Container>
           <div className="flex items-center gap-3 py-12">
-            <MdHome className="text-[#808080] text-2xl"/>
+            <Link to="/">
+              <MdHome className="text-[#808080] text-2xl"/>
+            </Link>
             {arr.map((item, index) =>(
               <span key={index} className="text-base text-[#999999]">
                 {item.charAt(0).toUpperCase() + item.slice(1)}

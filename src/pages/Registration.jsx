@@ -28,7 +28,8 @@ const Registration = () => {
   let handleClick = async ()=>{
     let user = await axios.post("http://localhost:5000/registration",regData);
     let {success, message} = user.data
-    console.log(success);
+    // Sir hw done 
+    toast.dismiss()
     if (!success) {
       toast.error(message, {
       position: "top-center",
