@@ -28,12 +28,62 @@ body {
   @apply w-10 h-10 rounded-full flex justify-center items-center hover:bg-primary hover:text-white cursor-pointer
 }
 .sidebar{
-  @apply  text-[#666666] text-base hover:text-[#1A1A1A] flex items-center gap-2.5 py-4
+  @apply  text-grydp text-base hover:text-[#1A1A1A] flex items-center gap-2.5 py-4
 }
 .categori{
-  @apply  text-[#666666] text-base hover:text-white flex items-center gap-2.5 py-4 px-5 hover:bg-primary
+  @apply  text-grydp text-base hover:text-white flex items-center gap-2.5 py-4 px-5 hover:bg-primary
 }
 .homedropup{
-  @apply  text-[#666666] text-base hover:text-white flex items-center gap-2.5 py-4 px-2 hover:bg-primary
+  @apply  text-grydp text-base hover:text-white flex items-center gap-2.5 py-4 px-2 hover:bg-primary
 }
 
+.prev-arrow{
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  z-index: 3;
+  transform: translateY(-50%);
+}
+.next-arrow{
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  z-index: 3;
+  transform: translateY(-50%);
+}
+.prev-arrow , .next-arrow {
+  background: #00B207;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 30px;
+}
+.swiper-pagination {
+  position: absolute;
+  bottom: 20px ;
+  left: 50% ;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 999px;
+  opacity: 1;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+  background: #ffffff;
+}

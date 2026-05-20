@@ -1,10 +1,10 @@
 import React from 'react'
 import { Routes, Route } from "react-router";
-import Home from './pages/Home';
 import Registration from './pages/Registration';
 import Login from './pages/Login';
 import MainLayout from './components/layout/MainLayout';
 import Hw from './pages/Hw';
+import Home from './pages/home/Home';
 
 
 const App = () => {
