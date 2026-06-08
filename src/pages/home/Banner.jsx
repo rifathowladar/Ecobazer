@@ -1,8 +1,8 @@
 import React from 'react'
 import Container from '../../components/layout/Container'
-import Bannar1 from '../../assets/image/Bannar1.webp'
-import Bannar2 from '../../assets/image/Bannar2.webp'
-import Bannar3 from '../../assets/image/Bannar3.webp'
+import Banner1 from '../../assets/image/Banner1.webp'
+import Banner2 from '../../assets/image/Banner2.webp'
+import Banner3 from '../../assets/image/Banner3.webp'
 import { Link } from 'react-router'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -11,7 +11,7 @@ import { Navigation, Autoplay, Pagination, Mousewheel, Scrollbar} from 'swiper/m
 import { FiArrowLeftCircle, FiArrowRightCircle } from "react-icons/fi";
 
 
-const Bannar = () => {
+const Banner = () => {
   let slider1 = {
     spaceBetween: 0,
     slidesPerView: 1,
@@ -69,9 +69,9 @@ const Bannar = () => {
         <div className="flex mt-6 gap-x-6">
             <div className="max-w-218 relative slider1">
               <Swiper {...slider1}>
-                <SwiperSlide><Link to="#"><img src={Bannar1} alt="bannar1" /></Link></SwiperSlide>
-                <SwiperSlide><Link to="#"><img src={Bannar2} className="w-full" alt="bannar2" /></Link></SwiperSlide>
-                <SwiperSlide><Link to="#"><img src={Bannar3} className="w-full" alt="bannar3" /></Link></SwiperSlide>
+                <SwiperSlide><Link to="#"><img src={Banner1} alt="banner1" /></Link></SwiperSlide>
+                <SwiperSlide><Link to="#"><img src={Banner2} className="w-full" alt="banner2" /></Link></SwiperSlide>
+                <SwiperSlide><Link to="#"><img src={Banner3} className="w-full" alt="banner3" /></Link></SwiperSlide>
               </Swiper>
               <div className="prev-arrow">
                 <FiArrowLeftCircle/>
@@ -84,17 +84,17 @@ const Bannar = () => {
               {/* slider2 */}
               <div className="relative text-white slider2">
                 <Swiper {...slider2}>
-                  <SwiperSlide><Link to="#"><img src={Bannar2} alt="bannar" /></Link></SwiperSlide>
-                  <SwiperSlide><Link to="#"><img src={Bannar3} className="w-full" alt="bannar" /></Link></SwiperSlide>
-                  <SwiperSlide><Link to="#"><img src={Bannar2} className="w-full" alt="bannar" /></Link></SwiperSlide>
+                  <SwiperSlide><Link to="#"><img src={Banner2} alt="banner" /></Link></SwiperSlide>
+                  <SwiperSlide><Link to="#"><img src={Banner3} className="w-full" alt="banner" /></Link></SwiperSlide>
+                  <SwiperSlide><Link to="#"><img src={Banner2} className="w-full" alt="banner" /></Link></SwiperSlide>
                 </Swiper>
               </div>
               {/* slider3 */}
               <div className="relative mt-6 flex h-72 slider3">
                 <Swiper {...slider3}>
-                  <SwiperSlide><Link to="#"><img src={Bannar3} className="w-full h-full" alt="bannar" /></Link></SwiperSlide>
-                  <SwiperSlide><Link to="#"><img src={Bannar2} className="w-full h-full" alt="bannar" /></Link></SwiperSlide>
-                  <SwiperSlide><Link to="#"><img src={Bannar3} className="w-full h-full" alt="bannar" /></Link></SwiperSlide>
+                  <SwiperSlide><Link to="#"><img src={Banner3} className="w-full h-full" alt="banner" /></Link></SwiperSlide>
+                  <SwiperSlide><Link to="#"><img src={Banner2} className="w-full h-full" alt="banner" /></Link></SwiperSlide>
+                  <SwiperSlide><Link to="#"><img src={Banner3} className="w-full h-full" alt="banner" /></Link></SwiperSlide>
                 </Swiper>
               </div>
             </div>
@@ -104,4 +104,4 @@ const Bannar = () => {
   )
 }
 
-export default Bannar
+export default Banner
