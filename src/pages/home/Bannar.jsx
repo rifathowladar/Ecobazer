@@ -6,7 +6,8 @@ import Bannar3 from '../../assets/image/Bannar3.webp'
 import { Link } from 'react-router'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import { Navigation, Autoplay, Pagination, Mousewheel, } from 'swiper/modules';
+import 'swiper/css/scrollbar';
+import { Navigation, Autoplay, Pagination, Mousewheel, Scrollbar} from 'swiper/modules';
 import { FiArrowLeftCircle, FiArrowRightCircle } from "react-icons/fi";
 
 
@@ -27,7 +28,7 @@ const Bannar = () => {
       clickable: true,
     },
 
-    modules: [Navigation, Autoplay, Pagination],
+    modules: [Navigation, Autoplay, Pagination,],
   }
   // slider2
   let slider2 = {
@@ -38,10 +39,13 @@ const Bannar = () => {
       delay: 4000,
       disableOnInteraction: false,
     },
-     pagination: {
+    pagination: {
       type: 'fraction',
     },
-    modules: [Autoplay, Pagination, ],
+    scrollbar: {
+      hide: false,
+    },
+    modules: [Autoplay, Pagination, Scrollbar],
   }
   // slider3
   let slider3 = {
@@ -63,7 +67,7 @@ const Bannar = () => {
     <>
     <Container>
         <div className="flex mt-6 gap-x-6">
-            <div className="max-w-218 relative">
+            <div className="max-w-218 relative slider1">
               <Swiper {...slider1}>
                 <SwiperSlide><Link to="#"><img src={Bannar1} alt="bannar1" /></Link></SwiperSlide>
                 <SwiperSlide><Link to="#"><img src={Bannar2} className="w-full" alt="bannar2" /></Link></SwiperSlide>
@@ -78,7 +82,7 @@ const Bannar = () => {
             </div>
             <div className="max-w-105.75">
               {/* slider2 */}
-              <div className="relative text-white">
+              <div className="relative text-white slider2">
                 <Swiper {...slider2}>
                   <SwiperSlide><Link to="#"><img src={Bannar2} alt="bannar" /></Link></SwiperSlide>
                   <SwiperSlide><Link to="#"><img src={Bannar3} className="w-full" alt="bannar" /></Link></SwiperSlide>
@@ -86,7 +90,7 @@ const Bannar = () => {
                 </Swiper>
               </div>
               {/* slider3 */}
-              <div className="relative mt-6 flex h-72">
+              <div className="relative mt-6 flex h-72 slider3">
                 <Swiper {...slider3}>
                   <SwiperSlide><Link to="#"><img src={Bannar3} className="w-full h-full" alt="bannar" /></Link></SwiperSlide>
                   <SwiperSlide><Link to="#"><img src={Bannar2} className="w-full h-full" alt="bannar" /></Link></SwiperSlide>

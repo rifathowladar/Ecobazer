@@ -5,6 +5,7 @@ import { FaFacebookF } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaPinterestP } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
+import { IoIosMail } from "react-icons/io";
 
 
 const FooterTop = () => {
@@ -19,6 +20,7 @@ const FooterTop = () => {
                 <div className="flex">
                     <div className="relative">
                         <input className='border bg-white border-[#808080] border-r-0 w-100 py-3 pl-11  placeholder:text-[#808080] placeholder:text-sm rounded-tl-full rounded-bl-full outline-none' type='text' placeholder='Your email address'/>
+                        <IoIosMail className="absolute top-0 translate-y-1/2 left-4 text-[#808080] text-2xl"/>
                         <button className="font-semibold text-sm bg-primary text-white px-10 py-4 relative top-[-2px] left-[-20px] rounded-full">Subscribe</button>
                     </div>
                     <div className="flex gap-4 ml-4">

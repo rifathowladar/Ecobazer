@@ -73,12 +73,26 @@ body {
   justify-content: center;
   gap: 10px;
 }
+.slider3 .swiper-pagination {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  left: auto;
+
+  transform: translateY(-50%);
+
+  z-index: 10;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 
 .swiper-pagination-bullet {
   width: 12px;
   height: 12px;
   background: rgba(255, 255, 255, 0.5);
-  border-radius: 999px;
+  border-radius: 50%;
   opacity: 1;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -87,3 +101,15 @@ body {
 .swiper-pagination-bullet-active {
   background: #ffffff;
 }
+
+/* slider2 scrollbar custom css */
+
+.slider2 .swiper-scrollbar {
+  transition-duration: 400ms;
+  background: rgba(255, 255, 255, 0.5);
+}
+.slider2 .swiper-scrollbar-drag {
+  background: #ffffff;
+  width: 100%;
+}
+

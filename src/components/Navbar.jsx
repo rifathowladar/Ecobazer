@@ -60,7 +60,7 @@ const Navbar = () => {
                   </div>
                 )}
                 {/* Categories */}
-            <div onMouseEnter={()=>setDropdown("categories")} className='flex items-center cursor-pointer bg-[#333333] px-13.5'>
+            <div onMouseEnter={()=>setDropdown("categories")} onMouseLeave={() => setDropdown("")} className='flex items-center cursor-pointer bg-[#333333] px-13.5'>
               <span className='flex items-center cursor-pointer gap-4 text-md font-bold hover:text-primary'>
                 <Link to ="#">All Categories</Link>
                 <FaAngleDown/>
@@ -85,49 +85,91 @@ const Navbar = () => {
             </div>
             <ul className="flex gap-x-8 text-sm items-center relative">
               {/* Home */}
-              <li onMouseEnter={()=>setDropdown("home")} className="ml-8">
-                <Link className="flex gap-1 items-center hover:text-primary" to="#">Home <FaAngleDown/></Link>
-                {dropdown === "home" &&
-                  <div className="absolute top-full left-0.5 mt-1 w-22 bg-white rounded shadow-2xl overflow-hidden z-50">
-                    <ul className="space-y-2 text-gray-700">
-                      <Link to="#"><li className="homedropup">Home 2</li></Link>
-                      <Link to="#"><li className="homedropup">Home 2</li></Link>
-                    </ul>
+              <li
+                onMouseEnter={() => setDropdown("home")}
+                onMouseLeave={() => setDropdown("")}
+                className="ml-8 relative"
+              >
+                <Link className="flex gap-1 items-center hover:text-primary" to="#">
+                  Home <FaAngleDown />
+                </Link>
+
+                {dropdown === "home" && (
+                  <div className="absolute top-full left-0 pt-5.5 z-50">
+                    <div className="w-22 bg-white rounded shadow-2xl overflow-hidden">
+                      <ul className="space-y-2 text-gray-700">
+                        <Link to="#"><li className="homedropup">Home 2</li></Link>
+                        <Link to="#"><li className="homedropup">Home 2</li></Link>
+                      </ul>
+                    </div>
                   </div>
-                }
+                )}
               </li>
-              <li onMouseEnter={()=> setDropdown("shop")}>
-                <Link className="flex gap-1 items-center hover:text-primary" to="#">Shop <FaAngleDown/></Link>
-                {dropdown === "shop" &&
-                  <div className="absolute top-full left-24 mt-1 w-22 bg-white rounded shadow-2xl overflow-hidden z-50">
-                    <ul className="space-y-2 text-gray-700">
-                      <Link to="#"><li className="homedropup">Shop 2</li></Link>
-                      <Link to="#"><li className="homedropup">Shop 2</li></Link>
-                    </ul>
+
+              {/* Shop */}
+              <li
+                onMouseEnter={() => setDropdown("shop")}
+                onMouseLeave={() => setDropdown("")}
+                className="relative"
+              >
+                <Link className="flex gap-1 items-center hover:text-primary" to="#">
+                  Shop <FaAngleDown />
+                </Link>
+
+                {dropdown === "shop" && (
+                  <div className="absolute top-full left-0 pt-5.5 z-50">
+                    <div className="w-22 bg-white rounded shadow-2xl overflow-hidden">
+                      <ul className="space-y-2 text-gray-700">
+                        <Link to="#"><li className="homedropup">Shop 2</li></Link>
+                        <Link to="#"><li className="homedropup">Shop 2</li></Link>
+                      </ul>
+                    </div>
                   </div>
-                }
+                )}
               </li>
-              <li onMouseEnter={()=> setDropdown("pages")}>
-                <Link className="flex gap-1 items-center hover:text-primary" to="#">Pages <FaAngleDown/></Link>
-                {dropdown === "pages" &&
-                  <div className="absolute top-full left-48 mt-1 w-20 bg-white rounded shadow-2xl overflow-hidden z-50">
-                    <ul className="space-y-2 text-gray-700">
-                      <Link to="#"><li className="homedropup">Pages 2</li></Link>
-                      <Link to="#"><li className="homedropup">Pages 2</li></Link>
-                    </ul>
+
+              {/* Pages */}
+              <li
+                onMouseEnter={() => setDropdown("pages")}
+                onMouseLeave={() => setDropdown("")}
+                className="relative"
+              >
+                <Link className="flex gap-1 items-center hover:text-primary" to="#">
+                  Pages <FaAngleDown />
+                </Link>
+
+                {dropdown === "pages" && (
+                  <div className="absolute top-full left-0 pt-5.5 z-50">
+                    <div className="w-20 bg-white rounded shadow-2xl overflow-hidden">
+                      <ul className="space-y-2 text-gray-700">
+                        <Link to="#"><li className="homedropup">Pages 2</li></Link>
+                        <Link to="#"><li className="homedropup">Pages 2</li></Link>
+                      </ul>
+                    </div>
                   </div>
-                }
+                )}
               </li>
-              <li onMouseEnter={()=>setDropdown("blog")} >
-                <Link className="flex gap-1 items-center hover:text-primary" to="#">Blog <FaAngleDown/></Link>
-                {dropdown === "blog" &&
-                  <div className="absolute top-full left-70 mt-1 w-22 bg-white rounded shadow-2xl overflow-hidden z-50">
-                    <ul className="space-y-2 text-gray-700">
-                      <Link to="#"><li className="homedropup">Blog 2</li></Link>
-                      <Link to="#"><li className="homedropup">Blog 2</li></Link>
-                    </ul>
+
+              {/* Blog */}
+              <li
+                onMouseEnter={() => setDropdown("blog")}
+                onMouseLeave={() => setDropdown("")}
+                className="relative"
+              >
+                <Link className="flex gap-1 items-center hover:text-primary" to="#">
+                  Blog <FaAngleDown />
+                </Link>
+
+                {dropdown === "blog" && (
+                  <div className="absolute top-full left-0 pt-5.5 z-50">
+                    <div className="w-22 bg-white rounded shadow-2xl overflow-hidden">
+                      <ul className="space-y-2 text-gray-700">
+                        <Link to="#"><li className="homedropup">Blog 2</li></Link>
+                        <Link to="#"><li className="homedropup">Blog 2</li></Link>
+                      </ul>
+                    </div>
                   </div>
-                }
+                )}
               </li>
               <li><Link className='hover:text-primary' to="#">About Us</Link></li>
               <li><Link className='hover:text-primary' to="#">Contact Us</Link></li>
