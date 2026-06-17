@@ -15,7 +15,10 @@ const Category = () => {
 
   return (
     <div className="my-10">
-        <ProductShowcase allData={allPro}/>
+      <ProductShowcase
+        title="Popular Categories"
+        allData={allPro}
+      />
     </div>
   )
 }
