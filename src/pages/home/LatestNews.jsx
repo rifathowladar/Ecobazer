@@ -13,7 +13,7 @@ const LatestNews = () => {
   return (
     <Container>
         <div className="grid grid-cols-3 gap-6 my-15">
-            <div className="shadow-md rounded">
+            <div className="shadow-md rounded hover:scale-102 transition duration-300 group">
                 <div className="">
                     <img src={News1} className="w-full" alt="News1" />
                 </div>
@@ -23,7 +23,7 @@ const LatestNews = () => {
                         <h5 className="flex items-center gap-1"><CgProfile/>By Admin</h5>
                         <h5 className="flex items-center gap-1"><FaRegCommentAlt/>65 Comments</h5>
                     </div>
-                    <h4 className="text-lg text-gray-900 hover:text-primary pr-10 pt-2">
+                    <h4 className="text-lg text-gray-900 group-hover:text-primary pr-10 pt-2">
                         Curabitur porttitor orci eget neque accumsan venenatis. Nunc fermentum.
                     </h4>
                     <Link to="#">
@@ -31,7 +31,7 @@ const LatestNews = () => {
                     </Link>
                 </div>
             </div>
-            <div className="shadow-md rounded">
+            <div className="shadow-md rounded hover:scale-102 transition duration-300 group">
                 <div className="">
                     <img src={News2} className="w-full" alt="News2" />
                 </div>
@@ -41,7 +41,7 @@ const LatestNews = () => {
                         <h5 className="flex items-center gap-1"><CgProfile/>By Admin</h5>
                         <h5 className="flex items-center gap-1"><FaRegCommentAlt/>65 Comments</h5>
                     </div>
-                    <h4 className="text-lg text-gray-900 hover:text-primary pr-10 pt-2">
+                    <h4 className="text-lg text-gray-900 group-hover:text-primary pr-10 pt-2">
                         Eget lobortis lorem lacinia. Vivamus pharetra semper,
                     </h4>
                     <Link to="#">
@@ -49,7 +49,7 @@ const LatestNews = () => {
                     </Link>
                 </div>
             </div>
-            <div className="shadow-md rounded">
+            <div className="shadow-md rounded hover:scale-102 transition duration-300 group">
                 <div className="">
                     <img src={News3} className="w-full" alt="News3" />
                 </div>
@@ -59,7 +59,7 @@ const LatestNews = () => {
                         <h5 className="flex items-center gap-1"><CgProfile/>By Admin</h5>
                         <h5 className="flex items-center gap-1"><FaRegCommentAlt/>65 Comments</h5>
                     </div>
-                    <h4 className="text-lg text-gray-900 hover:text-primary pr-10 pt-2">
+                    <h4 className="text-lg text-gray-900 group-hover:text-primary pr-10 pt-2">
                         Maecenas blandit risus elementum mauris malesuada.
                     </h4>
                     <Link to="#">

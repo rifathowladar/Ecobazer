@@ -1,110 +1,103 @@
-// import React from 'react'
-// import Container from '../../components/layout/Container'
-// import bestdeals1 from '../../assets/image/bestdeals1.webp'
-// import bestdeals2 from '../../assets/image/bestdeals2.webp'
-// import bestdeals3 from '../../assets/image/bestdeals3.webp'
-// const BestDeals = () => {
-//   return (
-//     <Container>
-//         <div className="grid grid-cols-3">
-//             <div className=""></div>
-//             <div className=""></div>
-//             <div className=""></div>
-//         </div>
-//     </Container>
-//   )
-// }
+import React, { useEffect, useState } from "react";
+import Container from "../../components/layout/Container";
 
-// export default BestDeals
-
-import React, { useEffect, useState } from 'react'
-import Container from '../../components/layout/Container'
-import bestdeals1 from '../../assets/image/bestdeals1.webp'
-import bestdeals2 from '../../assets/image/bestdeals2.webp'
-import bestdeals3 from '../../assets/image/bestdeals3.webp'
+import bestdeals1 from "../../assets/image/bestdeals1.webp";
+import bestdeals2 from "../../assets/image/bestdeals2.webp";
+import bestdeals3 from "../../assets/image/bestdeals3.webp";
 
 const BestDeals = () => {
-      const targetDate = new Date("2026-12-31T23:59:59").getTime();
+  const targetDate = new Date("2026-12-31T23:59:59").getTime();
 
-  const [timeLeft, setTimeLeft] = useState(targetDate - Date.now());
+  const getTimeLeft = () => Math.max(targetDate - Date.now(), 0);
+
+  const [timeLeft, setTimeLeft] = useState(getTimeLeft());
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setTimeLeft(targetDate - Date.now());
+      setTimeLeft(getTimeLeft());
     }, 1000);
 
     return () => clearInterval(timer);
   }, []);
 
-  const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-  const hours = Math.floor(
-    (timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-  );
-  const minutes = Math.floor(
-    (timeLeft % (1000 * 60 * 60)) / (1000 * 60)
-  );
-  const seconds = Math.floor(
-    (timeLeft % (1000 * 60)) / 1000
-  );
+  const formatTime = (time) => ({
+    days: Math.floor(time / (1000 * 60 * 60 * 24)),
+    hours: Math.floor((time / (1000 * 60 * 60)) % 24),
+    minutes: Math.floor((time / (1000 * 60)) % 60),
+    seconds: Math.floor((time / 1000) % 60),
+  });
+
+  const { days, hours, minutes, seconds } = formatTime(timeLeft);
+
+  if (timeLeft === 0) {
+    return (
+      <Container>
+        <div className="text-center py-20 text-xl font-bold text-red-500">
+          Offer Expired
+        </div>
+      </Container>
+    );
+  }
+
   return (
     <Container>
       <div className="grid grid-cols-3 gap-6 py-16">
-        
-        {/* First Card */}
-        <div className="relative overflow-hidden rounded-lg">
+
+        {/* Card 1 with Timer */}
+        <div className="relative overflow-hidden rounded-lg group">
           <img
             src={bestdeals1}
-            alt="Best Deal 1"
-            className="w-full h-full object-cover"
+            alt="Best Deal"
+            className="w-full h-full object-cover transition group-hover:scale-103"
           />
 
           {/* Timer */}
-          <div className="absolute text-white top-30 left-1/2 -translate-x-1/2 px-4 py-2">
-            <div className="flex gap-4 text-center">
-                <div>
-                    <h4 className="font-bold">{days}</h4>
-                    <p className="text-xs">Days</p>
-                </div>
+          <div className="absolute inset-0 flex top-30 justify-center">
+            <div className="flex gap-4 text-white text-center px-4 py-3 rounded-lg">
+              <div>
+                <h4 className="font-bold">{days}</h4>
+                <p className="text-xs">Days</p>
+              </div>
 
-                <div>
-                    <h4 className="font-bold">{hours}</h4>
-                    <p className="text-xs">Hours</p>
-                </div>
+              <div>
+                <h4 className="font-bold">{hours}</h4>
+                <p className="text-xs">Hours</p>
+              </div>
 
-                <div>
-                    <h4 className="font-bold">{minutes}</h4>
-                    <p className="text-xs">Min</p>
-                </div>
+              <div>
+                <h4 className="font-bold">{minutes}</h4>
+                <p className="text-xs">Min</p>
+              </div>
 
-                <div>
-                    <h4 className="font-bold">{seconds}</h4>
-                    <p className="text-xs">Sec</p>
-                </div>
+              <div>
+                <h4 className="font-bold">{seconds}</h4>
+                <p className="text-xs">Sec</p>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Second Card */}
-        <div className="overflow-hidden rounded-lg">
+        {/* Card 2 */}
+        <div className="overflow-hidden rounded-lg group">
           <img
             src={bestdeals2}
-            alt="Best Deal 2"
-            className="w-full h-full object-cover"
+            alt="Best Deal"
+            className="w-full h-full object-cover transition group-hover:scale-103"
           />
         </div>
 
-        {/* Third Card */}
-        <div className="overflow-hidden rounded-lg">
+        {/* Card 3 */}
+        <div className="overflow-hidden rounded-lg group">
           <img
             src={bestdeals3}
-            alt="Best Deal 3"
-            className="w-full h-full object-cover"
+            alt="Best Deal"
+            className="w-full h-full object-cover transition group-hover:scale-103"
           />
         </div>
 
       </div>
     </Container>
-  )
-}
+  );
+};
 
-export default BestDeals
+export default BestDeals;

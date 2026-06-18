@@ -9,7 +9,9 @@ import LatestNews from './LatestNews'
 import Review from './Review'
 import { Link } from 'react-router'
 import discountbannar from '../../assets/image/discountbannar.webp'
+import companyLogo from '../../assets/image/companyLogo.webp'
 import BestDeals from './BestDeals'
+import VenoBox from './VenoBox'
 
 const Home = () => {
   const [allPro, setAllPro] = useState([])
@@ -45,6 +47,8 @@ const Home = () => {
       <PopularProduct title="Featured Products" products={allPro.slice(0, 5)} />
       <LatestNews />
       <Review />
+      <Container><Link to="#"><img src={companyLogo} alt="companyLogo" /></Link></Container>
+      <VenoBox />
     </>
   )
 }
