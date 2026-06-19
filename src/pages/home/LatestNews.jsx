@@ -12,6 +12,9 @@ import { Link } from 'react-router'
 const LatestNews = () => {
   return (
     <Container>
+        <div className="">
+            <h3 className="font-semibold text-hsize text-center">Latest News</h3>
+        </div>
         <div className="grid grid-cols-3 gap-6 my-15">
             <div className="shadow-md rounded hover:scale-102 transition duration-300 group">
                 <div className="">
