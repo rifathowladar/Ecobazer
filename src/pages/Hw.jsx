@@ -86,6 +86,7 @@ const Hw = () => {
         )}
         
       </div>
+      <div className="w-30% h-[500px] bg-red-300"></div>
     </div>
     </Container>
   );

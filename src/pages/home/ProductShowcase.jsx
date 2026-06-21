@@ -5,7 +5,7 @@ import { FaArrowRight } from "react-icons/fa";
 import { Link } from 'react-router';
 import { FaStar , FaStarHalfAlt } from "react-icons/fa";
 
-const ProductShowcase = ({ allData, title }) => {
+const ProductShowcase = ({ allData, title , link ,showViewAll = true, }) => {
 
     function star(count) {
         let halfStar = count.toString().split('.')[1]
@@ -27,13 +27,17 @@ const ProductShowcase = ({ allData, title }) => {
     <Container>
         <div className="flex justify-between mb-8 mt-15">
             <h2 className="text-hsize font-semibold">{title}</h2>
-            <Link to="/category" className="text-primary flex gap-3 text-base font-medium">View All <FaArrowRight/></Link>
+            {showViewAll && ( <Link to={link} className="text-primary flex gap-3 text-base font-medium">View All <FaArrowRight /></Link>  )}
         </div>
         <div className="flex gap-5 flex-wrap mb-15">
             {allData.map(item=>(
                 <div className="max-w-[15.3%] border border-gry hover:border-primary hover:text-primary p-6 rounded-md">
                     <img src={Banner1} alt='banner' />
+                    {item.price ?
+                    <h3 className='pt-4'>{(item.name || item.title).slice(0, 16)}...</h3>
+                    :
                     <h3 className='pt-4'>{item.name || item.title}</h3>
+                    }
                     <p>{item.price && item.price}</p>
                     <p>{item.rating && item.rating}</p>
                     <div className="flex">

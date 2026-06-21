@@ -39,12 +39,16 @@ const Home = () => {
     <>
       <Banner />
       <FeatureBanner />
-      <ProductShowcase title="Popular Categories" allData={allCat} />
-      <ProductShowcase title="Popular Products" allData={allPro.slice(0, 12)} />
-      <PopularProduct title="Popular Products" products={allPro.slice(0, 10)} />
+      {/* Popular Categories */}
+      <ProductShowcase title="Popular Categories" allData={allCat} link="/category" />
+      <ProductShowcase title="Popular Products" allData={allPro.slice(0, 12)} link="/products" />
+      {/* Popular Products */}
+      <PopularProduct title="Popular Products" products={allPro.slice(0, 10)} link="/products" />
       <BestDeals />
+      {/* Discount Bannar */}
       <Container><Link to="#"><img src={discountbannar} alt="discountbannar" /></Link></Container>
-      <PopularProduct title="Featured Products" products={allPro.slice(0, 5)} />
+      {/* Featured Products */}
+      <PopularProduct title="Featured Products" products={allPro.slice(0, 5)} link="/products" />
       <LatestNews />
       <Review />
       <Container><Link to="#"><img src={companyLogo} alt="companyLogo" /></Link></Container>

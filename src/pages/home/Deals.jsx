@@ -11,7 +11,7 @@ const Deals = () => {
 
   const banners = [bestDeal, meat, summer];
   return (
-    <section className="py-15 px-4 lg:px-0">
+    <section className="py-15 px-4">
       <Container>
         <div className="main grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {banners.map((img, index) => (

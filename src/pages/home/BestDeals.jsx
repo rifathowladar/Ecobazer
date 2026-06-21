@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import useCountdown from "../../hooks/useCountdown";
 import Container from "../../components/layout/Container";
 
 import bestdeals1 from "../../assets/image/bestdeals1.webp";
@@ -6,30 +6,10 @@ import bestdeals2 from "../../assets/image/bestdeals2.webp";
 import bestdeals3 from "../../assets/image/bestdeals3.webp";
 
 const BestDeals = () => {
-  const targetDate = new Date("2026-12-31T23:59:59").getTime();
+ const { total, days, hours, minutes, seconds } =
+    useCountdown("2026-11-31T23:59:59");
 
-  const getTimeLeft = () => Math.max(targetDate - Date.now(), 0);
-
-  const [timeLeft, setTimeLeft] = useState(getTimeLeft());
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft(getTimeLeft());
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, []);
-
-  const formatTime = (time) => ({
-    days: Math.floor(time / (1000 * 60 * 60 * 24)),
-    hours: Math.floor((time / (1000 * 60 * 60)) % 24),
-    minutes: Math.floor((time / (1000 * 60)) % 60),
-    seconds: Math.floor((time / 1000) % 60),
-  });
-
-  const { days, hours, minutes, seconds } = formatTime(timeLeft);
-
-  if (timeLeft === 0) {
+  if (total === 0) {
     return (
       <Container>
         <div className="text-center py-20 text-xl font-bold text-red-500">

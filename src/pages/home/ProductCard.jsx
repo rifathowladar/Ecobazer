@@ -5,21 +5,23 @@ import { CiHeart } from "react-icons/ci";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 
 const ProductCard = ({ item }) => {
+  // item.rating function
+
   function star(count) {
-        let halfStar = count.toString().split('.')[1]
-        let index = Math.floor(count)
-        let arr = []
-        for (let i = 1; i <= 5; i++) {
-            if (i <= count) {
-                arr.push("color")
-            } else {
-                arr.push(i)
-            }
+    let halfStar = count.toString().split('.')[1]
+    let index = Math.floor(count)
+    let arr = []
+      for (let i = 1; i <= 5; i++) {
+        if (i <= count) {
+          arr.push("color")
+        } else {
+          arr.push(i)
         }
-        if (halfStar) {
-            arr[index] = "half"
-        }
-        return arr
+      }
+      if (halfStar) {
+        arr[index] = "half"
+      }
+      return arr
     }
 
   return (
@@ -42,7 +44,6 @@ const ProductCard = ({ item }) => {
         </button>
       </div>
 
-      {/* Product Image */}
       <div className="flex items-center justify-center overflow-hidden">
         <img
           src={item.thumbnail}
@@ -76,7 +77,7 @@ const ProductCard = ({ item }) => {
               ${item.price}
             </span>
 
-            {item.discountPercentage > 0 && (
+            {item.discountPercentage && (
               <span className="ml-2 text-xs text-gray-400 line-through">
                 $
                 {(
@@ -89,7 +90,7 @@ const ProductCard = ({ item }) => {
             )}
           </div>
 
-          <button className="w-8 h-8 rounded-full bg-gray-100 group-hover:bg-green-500 group-hover:text-white flex items-center justify-center transition">
+          <button className="w-8 h-8 rounded-full bg-gray-100 group-hover:bg-primary group-hover:text-white flex items-center justify-center transition">
             <HiOutlineShoppingBag />
           </button>
         </div>

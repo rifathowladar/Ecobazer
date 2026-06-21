@@ -16,8 +16,9 @@ const Category = () => {
   return (
     <div className="my-10">
       <ProductShowcase
-        title="Popular Categories"
+        title="All Categories"
         allData={allPro}
+        showViewAll={false}
       />
     </div>
   )
