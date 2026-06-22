@@ -25,7 +25,7 @@ const ProductCard = ({ item }) => {
     }
 
   return (
-    <div className="border border-gray-200 p-4 relative group bg-white hover:border-primary transition-colors duration-300">
+    <div className="border border-gray-200 p-4 relative group bg-white hover:border-primary transition-colors duration-300 h-full flex flex-col">
       {/* Sale Badge */}
       {item.discountPercentage > 0 && (
         <span className="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded">

@@ -12,6 +12,7 @@ import discountbannar from '../../assets/image/discountbannar.webp'
 import companyLogo from '../../assets/image/companyLogo.webp'
 import BestDeals from './BestDeals'
 import VenoBox from './VenoBox'
+import HotDeals from './HotDeals'
 
 const Home = () => {
   const [allPro, setAllPro] = useState([])
@@ -50,6 +51,8 @@ const Home = () => {
       {/* Featured Products */}
       <PopularProduct title="Featured Products" products={allPro.slice(0, 5)} link="/products" />
       <LatestNews />
+      {/*  */}
+      <HotDeals title="Hot Deals" products={allPro.slice(0, 12)} />
       <Review />
       <Container><Link to="#"><img src={companyLogo} alt="companyLogo" /></Link></Container>
       <VenoBox />
