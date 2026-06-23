@@ -42,7 +42,7 @@ const Home = () => {
       <FeatureBanner />
       {/* Popular Categories */}
       <ProductShowcase title="Popular Categories" allData={allCat} link="/category" />
-      <ProductShowcase title="Popular Products" allData={allPro.slice(0, 12)} link="/products" />
+      <ProductShowcase title="Popular Products" allData={allPro.slice(0, 12)} link="/products"  products={allPro} />
       {/* Popular Products */}
       <PopularProduct title="Popular Products" products={allPro.slice(0, 10)} link="/products" />
       <BestDeals />
@@ -60,4 +60,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Home ;

@@ -31,7 +31,7 @@ const ProductShowcase = ({ allData, title , link ,showViewAll = true, }) => {
         </div>
         <div className="flex gap-5 flex-wrap mb-15">
             {allData.map(item=>(
-                <div className="max-w-[15.3%] border border-gry hover:border-primary hover:text-primary p-6 rounded-md">
+                <div className="max-w-[15.3%] border border-gry hover:border-primary hover:text-primary p-6 rounded-md relative group">
                     <img src={Banner1} alt='banner' />
                     {item.price ?
                     <h3 className='pt-4'>{(item.name || item.title).slice(0, 16)}...</h3>
@@ -51,6 +51,29 @@ const ProductShowcase = ({ allData, title , link ,showViewAll = true, }) => {
                                     :
                                     <FaStar className="text-gry"/>
                         ))}
+                    </div>
+                    <div className="w-[210%] h-133.5 rounded-md bg-white left-[-7px] top-[-7px] absolute m-2 hidden group-hover:block duration-300 z-20">
+                            <img src={Banner1} alt="" />
+                        <h3 className="pt-4 text-lg font-medium">
+                            {item.name || item.title}
+                        </h3>
+
+                        <p className="text-primary font-semibold">
+                            ${item.price}
+                        </p>
+
+                        <div className="flex mt-2">
+                            {item.rating &&
+                                star(item.rating).map((starItem, index) =>
+                                    starItem === "color" ? (
+                                        <FaStar key={index} className="text-yellow-400" />
+                                    ) : starItem === "half" ? (
+                                        <FaStarHalfAlt key={index} className="text-yellow-400" />
+                                    ) : (
+                                        <FaStar key={index} className="text-gray-300" />
+                                    )
+                                )}
+                        </div>
                     </div>
                 </div>
             ))}
