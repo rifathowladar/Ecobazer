@@ -42,7 +42,12 @@ const Home = () => {
       <FeatureBanner />
       {/* Popular Categories */}
       <ProductShowcase title="Popular Categories" allData={allCat} link="/category" />
-      <ProductShowcase title="Popular Products" allData={allPro.slice(0, 12)} link="/products"  products={allPro} />
+      <ProductShowcase
+        allData={allPro.slice(0, 12)}
+        title="Deals"
+        link="/deals"
+        hover="true"
+      />
       {/* Popular Products */}
       <PopularProduct title="Popular Products" products={allPro.slice(0, 10)} link="/products" />
       <BestDeals />
