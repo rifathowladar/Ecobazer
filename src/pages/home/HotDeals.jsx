@@ -19,10 +19,14 @@ const HotDeals = ({ products, title }) => {
         
         {/* Featured Product */}
         {featuredProduct && (
-          <div className="col-span-2 auto-rows-[1fr] row-span-2">
-            <ProductCard item={featuredProduct} />
+          <div className="col-span-2 row-span-2">
+            <ProductCard
+              item={featuredProduct}
+              featured={true}
+            />
           </div>
         )}
+
 
         {/* Other Products */}
         {otherProducts?.map((item) =>

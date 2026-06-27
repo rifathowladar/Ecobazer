@@ -37,7 +37,7 @@ const Navbar = () => {
   return (
     <div className="bg-[#1A1A1A] text-white">
       <Container>
-        <div ref={navRef} className="flex justify-between items-center w-full py-2 sm:py-3">
+        <div ref={navRef} className="flex justify-between items-center w-full">
           <div className="flex items-center">
             {/* sidebar */}
             <div className="relative flex">
