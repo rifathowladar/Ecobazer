@@ -1,8 +1,5 @@
 import React from "react";
-import {
-  FaStar,
-  FaStarHalfAlt,
-} from "react-icons/fa";
+import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { LuEye } from "react-icons/lu";
 import { CiHeart } from "react-icons/ci";
 import { HiOutlineShoppingBag } from "react-icons/hi2";

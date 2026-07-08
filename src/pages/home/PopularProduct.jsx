@@ -5,12 +5,12 @@ const PopularProduct = ({ products, title }) => {
 
   return (
       <Container>
-        <section className="my-10">
+        <section className="my-5 sm:my-10">
             <div className="flex items-center justify-between mb-6">
-                <h2 className="text-2xl font-semibold">{title}</h2>
+                <h2 className="text-xl sm:text-2xl font-semibold">{title}</h2>
             </div>
 
-            <div className="grid grid-cols-5">
+            <div className="grid grid-cols-1 sm:grid-cols-5">
                 {products.map((item) => (
                 <ProductCard
                     key={item.id}

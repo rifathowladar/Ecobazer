@@ -1,25 +1,18 @@
 import React, { useRef, useState } from 'react'
 import Container from './layout/Container';
 import { Link } from 'react-router';
-import { FaBars, FaTimes } from "react-icons/fa";
-import { FaAngleDown } from "react-icons/fa";
+import { FaBars, FaTimes, FaRegHeart, FaAngleDown, } from "react-icons/fa";
 import useDropdown from '../hooks/useDropdown';
-import { LuLogOut } from "react-icons/lu";
-import { MdOutlineSettings } from "react-icons/md";
+import { LuLogOut, LuRefreshCw, } from "react-icons/lu";
+import { MdOutlineSettings, MdDashboard } from "react-icons/md";
 import { SlHandbag } from "react-icons/sl";
-import { LuRefreshCw } from "react-icons/lu";
-import { MdDashboard } from "react-icons/md";
-import { FaRegHeart } from "react-icons/fa";
 import { CiApple } from "react-icons/ci";
 import { PiBowlFoodDuotone } from "react-icons/pi";
 import { IoFishOutline } from "react-icons/io5";
-import { GiChickenOven } from "react-icons/gi";
-import { RiDrinks2Line } from "react-icons/ri";
+import { GiChickenOven, GiCampCookingPot } from "react-icons/gi";
+import { RiDrinks2Line, RiCake3Line } from "react-icons/ri";
 import { TbIceCream } from "react-icons/tb";
-import { RiCake3Line } from "react-icons/ri";
-import { GiCampCookingPot } from "react-icons/gi";
-import { FaBowlFood } from "react-icons/fa6";
-import { FaPlus } from "react-icons/fa6";
+import { FaBowlFood, FaPlus } from "react-icons/fa6";
 import { FiPhoneCall } from "react-icons/fi";
 
 

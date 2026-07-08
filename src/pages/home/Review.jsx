@@ -14,10 +14,15 @@ import { FaArrowLeft, FaArrowRight, FaStar } from 'react-icons/fa';
 const Review = () => {
     let slider1 = {
     spaceBetween: 24,
-    slidesPerView: 3,
+    slidesPerView: 1,
     navigation: {
       prevEl: ".prevarrow",
       nextEl: ".nextarrow",
+    },
+     breakpoints:{
+      769: {
+        slidesPerView: 3,
+      },
     },
     loop: true,
     autoplay : {
@@ -30,14 +35,14 @@ const Review = () => {
     <div className="w-full bg-gray-50 py-15">
         <Container>
             <div className="flex justify-between items-center mb-8">
-                <h2 className="text-3xl font-semibold">Client Testimonial</h2>
+                <h2 className="text-xl sm:text-3xl font-semibold">Client Testimonial</h2>
 
                 <div className="flex gap-3">
-                    <button className="prevarrow w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-primary hover:bg-primary hover:text-white hover:border-primary transition-all duration-300">
+                    <button className="prevarrow w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-gray-200 flex items-center justify-center text-primary hover:bg-primary hover:text-white hover:border-primary transition-all duration-300">
                         <FaArrowLeft />
                     </button>
 
-                    <button className="nextarrow w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-primary hover:bg-primary hover:text-white hover:border-primary transition-all duration-300">
+                    <button className="nextarrow w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-gray-200 flex items-center justify-center text-primary hover:bg-primary hover:text-white hover:border-primary transition-all duration-300">
                         <FaArrowRight />
                     </button>
                 </div>
@@ -162,14 +167,3 @@ const Review = () => {
 }
 
 export default Review
-
-{/* <div className="">
-                <h3 className="text-hsize text-black font-semibold">Client Testimonials</h3>
-            </div>
-            <div className="">
-                <div className="">
-                    <BiSolidQuoteAltRight/>
-                </div>
-                <div className=""></div>
-                <div className=""></div>
-            </div> */}

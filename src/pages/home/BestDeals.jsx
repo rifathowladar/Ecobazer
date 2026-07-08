@@ -21,7 +21,7 @@ const BestDeals = () => {
 
   return (
     <Container>
-      <div className="grid grid-cols-3 gap-6 py-16">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 py-8 sm:py-16">
 
         {/* Card 1 with Timer */}
         <div className="relative overflow-hidden rounded-lg group">
@@ -32,7 +32,7 @@ const BestDeals = () => {
           />
 
           {/* Timer */}
-          <div className="absolute inset-0 flex top-30 justify-center">
+          <div className="absolute inset-0 flex top-16 sm:top-30 justify-center">
             <div className="flex gap-4 text-white text-center px-4 py-3 rounded-lg">
               <div>
                 <h4 className="font-bold">{days}</h4>

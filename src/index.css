@@ -53,14 +53,11 @@ body {
 }
 .prev-arrow , .next-arrow {
   background: #00B207;
-  width: 50px;
-  height: 50px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  font-size: 30px;
 }
 .swiper-pagination {
   position: absolute;
@@ -78,11 +75,8 @@ body {
   top: 50%;
   right: 10px;
   left: auto;
-
   transform: translateY(-50%);
-
   z-index: 10;
-
   display: flex;
   flex-direction: column;
   gap: 10px;

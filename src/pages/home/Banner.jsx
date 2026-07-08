@@ -66,25 +66,25 @@ const Banner = () => {
   return (
     <>
     <Container>
-        <div className="flex mt-6 gap-x-6">
-            <div className="max-w-218 relative slider1">
+        <div className="flex flex-wrap mt-6 gap-x-6">
+            <div className="w-full sm:max-w-218 relative slider1">
               <Swiper {...slider1}>
-                <SwiperSlide><Link to="#"><img src={Banner1} alt="banner1" /></Link></SwiperSlide>
+                <SwiperSlide><Link to="#"><img src={Banner1} className="w-full" alt="banner1" /></Link></SwiperSlide>
                 <SwiperSlide><Link to="#"><img src={Banner2} className="w-full" alt="banner2" /></Link></SwiperSlide>
                 <SwiperSlide><Link to="#"><img src={Banner3} className="w-full" alt="banner3" /></Link></SwiperSlide>
               </Swiper>
-              <div className="prev-arrow">
+              <div className="prev-arrow absolute top-[50%] left-[10px] z-30 w-7 h-7 sm:h-12.5 sm:w-12.5 text-sm sm:text-3xl">
                 <FiArrowLeftCircle/>
               </div>
-              <div className="next-arrow">
+              <div className="next-arrow absolute top-[50%] right-[10px] z-30 w-7 h-7 sm:h-12.5 sm:w-12.5 text-sm sm:text-3xl">
                 <FiArrowRightCircle/>
               </div>
             </div>
-            <div className="max-w-105.75">
+            <div className="hidden sm:block max-w-105.75">
               {/* slider2 */}
               <div className="relative text-white slider2">
                 <Swiper {...slider2}>
-                  <SwiperSlide><Link to="#"><img src={Banner2} alt="banner" /></Link></SwiperSlide>
+                  <SwiperSlide><Link to="#"><img src={Banner2} className="w-full" alt="banner" /></Link></SwiperSlide>
                   <SwiperSlide><Link to="#"><img src={Banner3} className="w-full" alt="banner" /></Link></SwiperSlide>
                   <SwiperSlide><Link to="#"><img src={Banner2} className="w-full" alt="banner" /></Link></SwiperSlide>
                 </Swiper>

@@ -8,7 +8,7 @@ import Container from "../../components/layout/Container";
 export default function FeatureBanner() {
   return (
     <Container>
-      <section className="w-full mt-6 mb-15 bg-white shadow-md py-6 px-4 rounded-lg">
+      <section className="w-full mt-5 sm:mt-10 mb-5 sm:mb-15 bg-white shadow-md py-6 px-4 rounded-lg">
         <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {/* 1. Free Shipping */}
           <div className="flex items-center gap-4 group">
