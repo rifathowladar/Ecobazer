@@ -18,23 +18,23 @@ import { FiPhoneCall } from "react-icons/fi";
 
 const Navbar = () => {
   const [sidebar, setSidebar] = useState(false);
-  const [mobileMenu, setMobileMenu] = useState(false);
   const sidebarRef = useRef(null);
   const [dropdown, setDropdown] = useState("");
-  const [mobileDropdown, setMobileDropdown] = useState("");
+  const [menuOpen, setMenuOpen] = useState(false);
   const navRef = useRef(null);
 
   useDropdown(navRef, () => setDropdown(""), dropdown);
   useDropdown(sidebarRef, () => setSidebar(false), sidebar);
+  useDropdown(navRef, () => setMenuOpen(false), menuOpen);
   
   return (
     <div className="bg-[#1A1A1A] text-white">
       <Container>
-        <div ref={navRef} className="flex justify-between items-center w-full">
-          <div className="flex items-center">
+        <div ref={navRef} className="relative flex flex-col lg:flex-row justify-between items-center w-full">
+          <div className="flex flex-col lg:flex-row items-center w-full lg:w-auto">
             {/* sidebar */}
-            <div className="relative flex">
-              <ul onClick={() => setSidebar(true)} className='p-2 sm:p-3 md:p-4 bg-primary text-white' ref={sidebarRef}>
+            <div className="relative flex flex-col lg:flex-row w-full lg:w-auto">
+              <ul onClick={() => window.innerWidth < 1024 ? setMenuOpen(!menuOpen) : setSidebar(true)} className='p-2 sm:p-3 md:p-4 bg-primary text-white w-fit cursor-pointer lg:w-auto' ref={sidebarRef}>
                 <FaBars className='text-lg sm:text-xl md:text-hsize'/>
               </ul>
               {sidebar && (
@@ -55,7 +55,7 @@ const Navbar = () => {
                   </div>
                 )}
                 {/* Categories */}
-            <div onMouseEnter={()=>setDropdown("categories")} onMouseLeave={() => setDropdown("")} className='hidden md:flex items-center cursor-pointer bg-[#333333] px-3 md:px-4 lg:px-13.5'>
+            <div onMouseEnter={()=>setDropdown("categories")} onMouseLeave={() => setDropdown("")} className={`${menuOpen ? 'flex w-full py-3 justify-center' : 'hidden'} lg:flex items-center cursor-pointer bg-[#333333] px-3 md:px-4 lg:px-13.5`}>
               <span className='flex items-center cursor-pointer gap-1.5 md:gap-2 lg:gap-4 text-xs md:text-sm lg:text-md font-bold hover:text-primary'>
                 <Link to ="#">All Categories</Link>
                 <FaAngleDown className="text-xs md:text-sm"/>
@@ -78,7 +78,7 @@ const Navbar = () => {
                 }
             </div>
             </div>
-            <ul className="hidden md:flex gap-x-3 md:gap-x-4 lg:gap-x-8 text-xs md:text-sm items-center relative">
+            <ul className={`${menuOpen ? 'flex flex-col w-full py-4 gap-y-3 items-start pl-4' : 'hidden'} lg:flex lg:flex-row gap-x-3 md:gap-x-4 lg:gap-x-8 text-xs md:text-sm items-center relative`}>
               {/* Home */}
               <li
                 onMouseEnter={() => setDropdown("home")}
@@ -170,84 +170,8 @@ const Navbar = () => {
               <li><Link className='hover:text-primary' to="#">Contact Us</Link></li>
             </ul>
           </div>
-          <div className="hidden md:block"><Link to="tel:2195550114"><span className='flex text-xs md:text-sm gap-1.5 md:gap-2 hover:text-primary'><FiPhoneCall className='text-lg md:text-2xl'/> (219) 555-0114</span></Link></div>
-          <button onClick={() => setMobileMenu(!mobileMenu)} className="md:hidden text-xl sm:text-2xl">
-            {mobileMenu ? <FaTimes /> : <FaBars />}
-          </button>
+          <div className="absolute right-4 top-3 sm:top-4 lg:static block"><Link to="tel:2195550114"><span className='flex text-xs md:text-sm gap-1.5 md:gap-2 hover:text-primary'><FiPhoneCall className='text-lg md:text-2xl'/> (219) 555-0114</span></Link></div>
         </div>
-        {/* Mobile Menu */}
-        {mobileMenu && (
-          <div className="md:hidden py-3 sm:py-4 border-t border-gray-700">
-            <ul className="space-y-2 sm:space-y-3">
-              <li className="p-1.5 sm:p-2">
-                <button onClick={() => setMobileDropdown(mobileDropdown === "categories" ? "" : "categories")} className="flex items-center justify-between w-full hover:text-primary">
-                  All Categories <FaAngleDown className="text-sm"/>
-                </button>
-                {mobileDropdown === "categories" && (
-                  <ul className="pl-3 sm:pl-4 mt-1.5 sm:mt-2 space-y-1.5 sm:space-y-2 text-gray-300 text-sm">
-                    <Link to="#"><li className="py-1.5 sm:py-2"><CiApple className="inline mr-1.5 sm:mr-2 text-lg"/>Fresh Fruit</li></Link>
-                    <Link to="#"><li className="py-1.5 sm:py-2"><PiBowlFoodDuotone className="inline mr-1.5 sm:mr-2 text-lg"/>Vegetables</li></Link>
-                    <Link to="#"><li className="py-1.5 sm:py-2"><IoFishOutline className="inline mr-1.5 sm:mr-2 text-lg"/>River Fish</li></Link>
-                    <Link to="#"><li className="py-1.5 sm:py-2"><GiChickenOven className="inline mr-1.5 sm:mr-2 text-lg"/>Chicken & Meat</li></Link>
-                    <Link to="#"><li className="py-1.5 sm:py-2"><RiDrinks2Line className="inline mr-1.5 sm:mr-2 text-lg"/>Drink & Water</li></Link>
-                    <Link to="#"><li className="py-1.5 sm:py-2"><TbIceCream className="inline mr-1.5 sm:mr-2 text-lg"/>Yogurt & Ice Cream</li></Link>
-                    <Link to="#"><li className="py-1.5 sm:py-2"><RiCake3Line className="inline mr-1.5 sm:mr-2 text-lg"/>Cake & Bread</li></Link>
-                    <Link to="#"><li className="py-1.5 sm:py-2"><FaBowlFood className="inline mr-1.5 sm:mr-2 text-lg"/>Butter & Cream</li></Link>
-                    <Link to="#"><li className="py-1.5 sm:py-2"><GiCampCookingPot className="inline mr-1.5 sm:mr-2 text-lg"/>Cooking</li></Link>
-                    <Link to="#"><li className="py-1.5 sm:py-2"><FaPlus className="inline mr-1.5 sm:mr-2 text-lg"/>View all Category</li></Link>
-                  </ul>
-                )}
-              </li>
-              <li className="p-1.5 sm:p-2">
-                <button onClick={() => setMobileDropdown(mobileDropdown === "home" ? "" : "home")} className="flex items-center justify-between w-full hover:text-primary">
-                  Home <FaAngleDown className="text-sm"/>
-                </button>
-                {mobileDropdown === "home" && (
-                  <ul className="pl-3 sm:pl-4 mt-1.5 sm:mt-2 space-y-1.5 sm:space-y-2 text-gray-300 text-sm">
-                    <Link to="#"><li className="py-1.5 sm:py-2">Home 2</li></Link>
-                    <Link to="#"><li className="py-1.5 sm:py-2">Home 2</li></Link>
-                  </ul>
-                )}
-              </li>
-              <li className="p-1.5 sm:p-2">
-                <button onClick={() => setMobileDropdown(mobileDropdown === "shop" ? "" : "shop")} className="flex items-center justify-between w-full hover:text-primary">
-                  Shop <FaAngleDown className="text-sm"/>
-                </button>
-                {mobileDropdown === "shop" && (
-                  <ul className="pl-3 sm:pl-4 mt-1.5 sm:mt-2 space-y-1.5 sm:space-y-2 text-gray-300 text-sm">
-                    <Link to="#"><li className="py-1.5 sm:py-2">Shop 2</li></Link>
-                    <Link to="#"><li className="py-1.5 sm:py-2">Shop 2</li></Link>
-                  </ul>
-                )}
-              </li>
-              <li className="p-1.5 sm:p-2">
-                <button onClick={() => setMobileDropdown(mobileDropdown === "pages" ? "" : "pages")} className="flex items-center justify-between w-full hover:text-primary">
-                  Pages <FaAngleDown className="text-sm"/>
-                </button>
-                {mobileDropdown === "pages" && (
-                  <ul className="pl-3 sm:pl-4 mt-1.5 sm:mt-2 space-y-1.5 sm:space-y-2 text-gray-300 text-sm">
-                    <Link to="#"><li className="py-1.5 sm:py-2">Pages 2</li></Link>
-                    <Link to="#"><li className="py-1.5 sm:py-2">Pages 2</li></Link>
-                  </ul>
-                )}
-              </li>
-              <li className="p-1.5 sm:p-2">
-                <button onClick={() => setMobileDropdown(mobileDropdown === "blog" ? "" : "blog")} className="flex items-center justify-between w-full hover:text-primary">
-                  Blog <FaAngleDown className="text-sm"/>
-                </button>
-                {mobileDropdown === "blog" && (
-                  <ul className="pl-3 sm:pl-4 mt-1.5 sm:mt-2 space-y-1.5 sm:space-y-2 text-gray-300 text-sm">
-                    <Link to="#"><li className="py-1.5 sm:py-2">Blog 2</li></Link>
-                    <Link to="#"><li className="py-1.5 sm:py-2">Blog 2</li></Link>
-                  </ul>
-                )}
-              </li>
-              <li className="p-1.5 sm:p-2"><Link className='hover:text-primary' to="#">About Us</Link></li>
-              <li className="p-1.5 sm:p-2"><Link className='hover:text-primary' to="#">Contact Us</Link></li>
-              <li className="p-1.5 sm:p-2"><Link to="tel:2195550114"><span className='flex text-sm gap-1.5 md:gap-2 hover:text-primary'><FiPhoneCall className='text-lg sm:text-xl'/> (219) 555-0114</span></Link></li>
-            </ul>
-          </div>
-        )}
       </Container>
     </div>
   )
