@@ -22,7 +22,6 @@ const ProductShowcase = ({ allData,
         return arr
     }
 
-    // ধরে নিচ্ছি প্রতি row তে 6 টা item (max-w-[15.3%])
     const itemsPerRow =
     window.innerWidth >= 768
         ? 6
@@ -30,7 +29,6 @@ const ProductShowcase = ({ allData,
 
     return (
         <Container>
-            {/* overflow-hidden দিলে popup section এর বাইরে যাবে না */}
             <div className="overflow-hidden">
                 <div className="flex justify-between mb-5 sm:mb-8 mt-2 sm:mt-15">
                     <h2 className="text-lg sm:text-hsize font-semibold">{title}</h2>
@@ -43,11 +41,9 @@ const ProductShowcase = ({ allData,
 
                 <div className="grid grid-cols-2 sm:grid-cols-6 gap-5 mb-5 sm:mb-15">
                     {allData.map((item, idx) => {
-                        // row এর শেষ দিকের item হলে popup বাম দিকে খুলবে
                         const positionInRow = idx % itemsPerRow;
                         const isNearRightEdge = positionInRow >= itemsPerRow - 2;
 
-                        // নিচের row হলে popup উপরের দিকে খুলবে
                         const rowIndex = Math.floor(idx / itemsPerRow);
                         const lastRowIndex = Math.floor((allData.length - 1) / itemsPerRow);
                         const isBottomRow = rowIndex > 0 && rowIndex === lastRowIndex;
@@ -73,7 +69,6 @@ const ProductShowcase = ({ allData,
                                     ))}
                                 </div>
 
-                                {/* Popup: edge এর কাছে হলে বাম দিকে, নাহলে ডানে; নিচের row হলে উপরে */}
                                 {hover && (
                                 <div className="hidden sm:block">
                                     <div
