@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import ProductShowcase from './home/ProductShowcase'
+import ProductShowcase from '../components/home/ProductShowcase'
 
 const Category = () => {
     let [allPro,setAllPro] = useState([])

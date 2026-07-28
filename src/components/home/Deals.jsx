@@ -1,5 +1,5 @@
 import React from "react";
-import Container from "../layouts/Container";
+import Container from "../../components/layout/Container";
 import bestDeal from "../../../public/bestDeals.webp";
 import summer from "../../../public/summerSale.webp";
 import meat from "../../../public/meat.webp";
