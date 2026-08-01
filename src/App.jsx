@@ -6,6 +6,7 @@ import MainLayout from './components/layout/MainLayout';
 import Hw from './pages/Hw';
 import Home from './pages/Home';
 import Category from './pages/Category';
+import Shop from './pages/Shop';
 
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
           <Route path="/registration" element={<Registration />} />
           <Route path="/login" element={<Login />} />
           <Route path="/category" element={<Category />} />
+          <Route path="/Shop" element={<Shop />} />
           <Route path="/hw" element={<Hw />} />
         </Route>
       </Routes>

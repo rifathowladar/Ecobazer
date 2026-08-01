@@ -1,9 +1,248 @@
-import React from 'react'
+import { useEffect, useState } from "react";
+import axios from "axios";
+
+import {
+  FaChevronDown,
+  FaChevronUp,
+  FaFilter,
+  FaSearch,
+  FaStar,
+  FaTimes,
+} from "react-icons/fa";
+
+import Container from "../components/layout/Container";
+import ProductCard from "../components/product/ProductCard";
 
 const Shop = () => {
-  return (
-    <div>Shop</div>
-  )
-}
+  // Filter ON / OFF
+  const [showFilter, setShowFilter] = useState(false);
 
-export default Shop
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    async function fetchProducts() {
+      try {
+        const [catRes] = await Promise.all([
+          axios.get("https://dummyjson.com/products"),
+        ]);
+
+        // dummyjson returns { products, total, skip, limit }
+        setProducts(catRes.data.products || []);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    fetchProducts();
+  }, []);
+
+  return (
+    <Container>
+      <div className="py-8">
+        {/* =================================
+            TOP BAR
+        ================================= */}
+
+        <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          {/* Filter + Search */}
+          <div className="flex items-center gap-3">
+            {/* Filter Button */}
+            <button
+              onClick={() => setShowFilter(!showFilter)}
+              className={`flex h-10 items-center gap-2 rounded-full px-5 text-sm font-medium transition ${
+                showFilter
+                  ? "bg-primary text-white"
+                  : "border border-gray-200 bg-white text-gray-700 hover:border-primary hover:text-primary"
+              }`}
+            >
+              <FaFilter size={13} />
+              Filter
+              {showFilter && <FaTimes size={11} />}
+            </button>
+          </div>
+
+          {/* Sort */}
+          <div className="flex items-center gap-2">
+            <span className="text-sm text-gray-500">Sort by:</span>
+
+            <select
+              className="rounded-lg border border-gray-200 px-3 py-2 text-sm outline-none focus:border-primary"
+            >
+              <option value="latest">Latest</option>
+              <option value="low">Price Low</option>
+              <option value="high">Price High</option>
+              <option value="rating">Rating</option>
+            </select>
+          </div>
+        </div>
+
+        {/* =================================
+            MAIN
+        ================================= */}
+
+        <div
+          className={`grid gap-6 ${
+            showFilter ? "grid-cols-1 lg:grid-cols-4" : "grid-cols-1"
+          }`}
+        >
+          {/* =================================
+              SIDEBAR
+          ================================= */}
+
+          {showFilter && (
+            <aside className="rounded-lg border border-gray-200 bg-white p-5 lg:col-span-1">
+              {/* Filter Header */}
+              <div className="mb-5 flex items-center justify-between">
+                <h2 className="font-semibold text-gray-900">Filters</h2>
+
+                <button
+                  className="text-xs font-medium text-primary hover:underline"
+                >
+                  Clear All
+                </button>
+              </div>
+
+              {/* =========================
+                  CATEGORY
+              ========================= */}
+
+              <div className="border-b border-gray-200 pb-5">
+                <button className="flex w-full items-center justify-between">
+                  <span className="font-semibold">All Categories</span>
+                  <FaChevronUp size={11} />
+                </button>
+
+                <div className="mt-4 max-h-64 space-y-3 overflow-y-auto">
+                  <label className="flex cursor-pointer items-center gap-3 text-sm text-gray-600">
+                    <input
+                      type="radio"
+                      name="category"
+                      className="accent-primary"
+                      defaultChecked
+                    />
+                    All Products
+                  </label>
+
+                  {[...new Set(products.map((p) => p.category))].map(
+                    (category) => (
+                      <label
+                        key={category}
+                        className="flex cursor-pointer items-center gap-3 text-sm capitalize text-gray-600"
+                      >
+                        <input
+                          type="radio"
+                          name="category"
+                          className="accent-primary"
+                        />
+                        {category}
+                      </label>
+                    )
+                  )}
+                </div>
+              </div>
+
+              {/* =========================
+                  PRICE
+              ========================= */}
+
+              <div className="border-b border-gray-200 py-5">
+                <button className="flex w-full items-center justify-between">
+                  <span className="font-semibold">Price</span>
+                  <FaChevronUp size={11} />
+                </button>
+
+                <div className="mt-5">
+                  <input
+                    type="range"
+                    min="0"
+                    max="1000"
+                    step="10"
+                    defaultValue={1000}
+                    className="w-full accent-primary"
+                  />
+
+                  <div className="mt-2 flex justify-between text-xs text-gray-500">
+                    <span>$0</span>
+                    <span>$1000</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* =========================
+                  RATING
+              ========================= */}
+
+              <div className="py-5">
+                <button className="flex w-full items-center justify-between">
+                  <span className="font-semibold">Rating</span>
+                  <FaChevronUp size={11} />
+                </button>
+
+                <div className="mt-4 space-y-2">
+                  {[4, 3, 2, 1].map((stars) => (
+                    <label
+                      key={stars}
+                      className="flex cursor-pointer items-center gap-2 text-sm text-gray-600"
+                    >
+                      <input
+                        type="radio"
+                        name="rating"
+                        className="accent-primary"
+                      />
+                      <span className="flex items-center gap-0.5">
+                        {Array.from({ length: 5 }).map((_, i) => (
+                          <FaStar
+                            key={i}
+                            size={11}
+                            className={
+                              i < stars ? "text-yellow-400" : "text-gray-200"
+                            }
+                          />
+                        ))}
+                      </span>
+                      <span>& up</span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+            </aside>
+          )}
+
+          {/* ================================
+              PRODUCT AREA
+          ================================= */}
+
+          <main className={showFilter ? "lg:col-span-3" : "lg:col-span-1"}>
+            {/* Result */}
+            <div className="mb-5 flex items-center justify-between">
+              <p className="text-sm text-gray-500">
+                <span className="font-medium text-gray-900">
+                  {products.length}
+                </span>{" "}
+                Results Found
+              </p>
+            </div>
+
+            {/* =========================
+                PRODUCT GRID
+            ========================= */}
+
+            <div
+              className={`grid gap-4 ${
+                showFilter
+                  ? "grid-cols-1 md:grid-cols-3"
+                  : "grid-cols-1 md:grid-cols-3 xl:grid-cols-4"
+              }`}
+            >
+              {products.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </div>
+          </main>
+        </div>
+      </div>
+    </Container>
+  );
+};
+
+export default Shop;

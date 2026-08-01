@@ -1,7 +1,7 @@
 import Container from "../../components/layout/Container";
 import ProductCard from "./ProductCard";
 
-const PopularProduct = ({ products, title }) => {
+const PopularProduct = ({ products, title ,shop = false }) => {
 
   return (
       <Container>
@@ -10,7 +10,11 @@ const PopularProduct = ({ products, title }) => {
                 <h2 className="text-xl sm:text-2xl font-semibold">{title}</h2>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-5">
+            <div className={`grid grid-cols-1  ${
+                shop
+                ? "lg:grid-cols-3 gap-6 rounded-lg"
+                : "lg:grid-cols-5"
+            }`}>
                 {products.map((item) => (
                 <ProductCard
                     key={item.id}
