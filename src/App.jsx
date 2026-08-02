@@ -7,6 +7,9 @@ import Hw from './pages/Hw';
 import Home from './pages/Home';
 import Category from './pages/Category';
 import Shop from './pages/Shop';
+import Error from './pages/Error';
+import Contact from './pages/Contact';
+import Checkout from './pages/Checkout';
 
 
 const App = () => {
@@ -19,6 +22,9 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/category" element={<Category />} />
           <Route path="/Shop" element={<Shop />} />
+          <Route path="/error" element={<Error />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/checkout" element={<Checkout />} />
           <Route path="/hw" element={<Hw />} />
         </Route>
       </Routes>
