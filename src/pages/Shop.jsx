@@ -8,6 +8,8 @@ import {
   FaSearch,
   FaStar,
   FaTimes,
+  FaChevronLeft,
+  FaChevronRight,
 } from "react-icons/fa";
 
 import Container from "../components/layout/Container";
@@ -16,17 +18,16 @@ import ProductCard from "../components/product/ProductCard";
 const Shop = () => {
   // Filter ON / OFF
   const [showFilter, setShowFilter] = useState(false);
-
   const [products, setProducts] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     async function fetchProducts() {
       try {
         const [catRes] = await Promise.all([
-          axios.get("https://dummyjson.com/products"),
+          axios.get("https://dummyjson.com/products?limit=0"),
         ]);
 
-        // dummyjson returns { products, total, skip, limit }
         setProducts(catRes.data.products || []);
       } catch (error) {
         console.log(error);
@@ -35,6 +36,62 @@ const Shop = () => {
 
     fetchProducts();
   }, []);
+
+  // ================
+  // PAGINATION CALCULATIONS
+  // ================
+
+  const itemsPerPage = showFilter ? 15 : 20;
+
+  const totalPages = Math.max(1, Math.ceil(products.length / itemsPerPage));
+
+  useEffect(() => {
+    if (currentPage > totalPages) {
+      setCurrentPage(totalPages);
+    }
+  }, [totalPages, currentPage]);
+
+  const currentProducts = products.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
+
+  const getVisiblePages = () => {
+    if (totalPages <= 7) {
+      return Array.from({ length: totalPages }, (_, i) => i + 1);
+    }
+
+    const pages = [];
+
+    pages.push(1);
+
+    if (currentPage > 3) {
+      pages.push("left");
+    }
+
+    const start = Math.max(2, currentPage - 1);
+    const end = Math.min(totalPages - 1, currentPage + 1);
+
+    for (let i = start; i <= end; i++) {
+      pages.push(i);
+    }
+
+    if (currentPage < totalPages - 2) {
+      pages.push("right");
+    }
+
+    pages.push(totalPages);
+
+    return pages;
+  };
+
+  const goToPage = (page) => {
+    setCurrentPage(page);
+  };
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [showFilter]);
 
   return (
     <Container>
@@ -52,7 +109,7 @@ const Shop = () => {
               className={`flex h-10 items-center gap-2 rounded-full px-5 text-sm font-medium transition ${
                 showFilter
                   ? "bg-primary text-white"
-                  : "border border-gray-200 bg-white text-gray-700 hover:border-primary hover:text-primary"
+                  : "border border-gray-200 bg-white text-gray-700"
               }`}
             >
               <FaFilter size={13} />
@@ -62,17 +119,26 @@ const Shop = () => {
           </div>
 
           {/* Sort */}
-          <div className="flex items-center gap-2">
+          <div className="text-start flex items-center gap-2">
             <span className="text-sm text-gray-500">Sort by:</span>
 
-            <select
-              className="rounded-lg border border-gray-200 px-3 py-2 text-sm outline-none focus:border-primary"
-            >
+            <select className="rounded-lg border border-gray-200 px-3 py-2 text-sm outline-none focus:border-primary">
               <option value="latest">Latest</option>
               <option value="low">Price Low</option>
               <option value="high">Price High</option>
               <option value="rating">Rating</option>
             </select>
+          </div>
+          <div className="" />
+          <div className="" />
+          {/* Result */}
+          <div className="mb-5 flex items-center justify-between">
+            <p className="text-sm text-gray-500">
+              <span className="font-medium text-gray-900">
+                {products.length}
+              </span>{" "}
+              Results Found
+            </p>
           </div>
         </div>
 
@@ -95,9 +161,7 @@ const Shop = () => {
               <div className="mb-5 flex items-center justify-between">
                 <h2 className="font-semibold text-gray-900">Filters</h2>
 
-                <button
-                  className="text-xs font-medium text-primary hover:underline"
-                >
+                <button className="text-xs font-medium text-primary hover:underline">
                   Clear All
                 </button>
               </div>
@@ -213,16 +277,6 @@ const Shop = () => {
           ================================= */}
 
           <main className={showFilter ? "lg:col-span-3" : "lg:col-span-1"}>
-            {/* Result */}
-            <div className="mb-5 flex items-center justify-between">
-              <p className="text-sm text-gray-500">
-                <span className="font-medium text-gray-900">
-                  {products.length}
-                </span>{" "}
-                Results Found
-              </p>
-            </div>
-
             {/* =========================
                 PRODUCT GRID
             ========================= */}
@@ -234,10 +288,59 @@ const Shop = () => {
                   : "grid-cols-1 md:grid-cols-3 xl:grid-cols-4"
               }`}
             >
-              {products.map((product) => (
+              {currentProducts.map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}
             </div>
+
+            {/* =============================== */}
+            {totalPages > 1 && (
+              <div className="mt-10 flex items-center justify-center gap-2">
+                {/* Previous */}
+                <button
+                  onClick={() => goToPage(Math.max(currentPage - 1, 1))}
+                  disabled={currentPage === 1}
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-300 text-gray-600 transition hover:border-primary hover:text-primary disabled:cursor-not-allowed disabled:opacity-40"
+                >
+                  <FaChevronLeft size={12} />
+                </button>
+
+                {/* Page Numbers */}
+                {getVisiblePages().map((page, index) =>
+                  page === "left" || page === "right" ? (
+                    <span
+                      key={`${page}-${index}`}
+                      className="flex h-10 w-10 items-center justify-center text-gray-500"
+                    >
+                      ...
+                    </span>
+                  ) : (
+                    <button
+                      key={page}
+                      onClick={() => goToPage(page)}
+                      className={`flex h-10 w-10 items-center justify-center rounded-full transition text-gray-600 ${
+                        currentPage === page
+                          ? "bg-primary text-white"
+                          : "hover:bg-primary hover:text-white"
+                      }`}
+                    >
+                      {page}
+                    </button>
+                  )
+                )}
+
+                {/* Next */}
+                <button
+                  onClick={() =>
+                    goToPage(Math.min(currentPage + 1, totalPages))
+                  }
+                  disabled={currentPage === totalPages}
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-300 text-gray-600 transition hover:border-primary hover:text-primary disabled:cursor-not-allowed disabled:opacity-40"
+                >
+                  <FaChevronRight size={12} />
+                </button>
+              </div>
+            )}
           </main>
         </div>
       </div>
