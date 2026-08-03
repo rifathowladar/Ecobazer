@@ -14,6 +14,11 @@ import {
 
 import Container from "../components/layout/Container";
 import ProductCard from "../components/product/ProductCard";
+import { Link } from "react-router";
+import shopdiscount from "../assets/image/shopdiscount.webp"
+import redcapsicum from "../assets/image/redcapsicum.webp"
+import mango from "../assets/image/mango.webp"
+import greencapsicum from "../assets/image/greencapsicum.webp"
 
 const Shop = () => {
   // Filter ON / OFF
@@ -156,7 +161,7 @@ const Shop = () => {
           ================================= */}
 
           {showFilter && (
-            <aside className="rounded-lg border border-gray-200 bg-white p-5 lg:col-span-1">
+            <aside className="rounded-lg bg-white py-5 lg:col-span-1">
               {/* Filter Header */}
               <div className="mb-5 flex items-center justify-between">
                 <h2 className="font-semibold text-gray-900">Filters</h2>
@@ -177,31 +182,34 @@ const Shop = () => {
                 </button>
 
                 <div className="mt-4 max-h-64 space-y-3 overflow-y-auto">
-                  <label className="flex cursor-pointer items-center gap-3 text-sm text-gray-600">
-                    <input
-                      type="radio"
-                      name="category"
-                      className="accent-primary"
-                      defaultChecked
-                    />
-                    All Products
-                  </label>
-
-                  {[...new Set(products.map((p) => p.category))].map(
-                    (category) => (
-                      <label
-                        key={category}
-                        className="flex cursor-pointer items-center gap-3 text-sm capitalize text-gray-600"
-                      >
-                        <input
-                          type="radio"
-                          name="category"
-                          className="accent-primary"
-                        />
-                        {category}
-                      </label>
-                    )
-                  )}
+                  <div>
+                    <input hidden type="checkbox" className="fresh" id="freshClick" />
+                    <label className="freshLabel" htmlFor="freshClick">Fresh Fruit</label>
+                  </div>
+                  <div>
+                    <input hidden type="checkbox" className="fresh" id="vegetables" />
+                    <label className="freshLabel" htmlFor="vegetables">Vegetables</label>
+                  </div>
+                  <div>
+                    <input hidden type="checkbox" className="fresh" id="cooking" />
+                    <label className="freshLabel" htmlFor="cooking">Cooking</label>
+                  </div>
+                  <div>
+                    <input hidden type="checkbox" className="fresh" id="snacks" />
+                    <label className="freshLabel" htmlFor="snacks">Snacks</label>
+                  </div>
+                  <div>
+                    <input hidden type="checkbox" className="fresh" id="beverages" />
+                    <label className="freshLabel" htmlFor="beverages">Beverages</label>
+                  </div>
+                  <div>
+                    <input hidden type="checkbox" className="fresh" id="beauty" />
+                    <label className="freshLabel" htmlFor="beauty">Beauty & Health</label>
+                  </div>
+                  <div>
+                    <input hidden type="checkbox" className="fresh" id="bread" />
+                    <label className="freshLabel" htmlFor="bread">Bread & Bakery</label>
+                  </div>
                 </div>
               </div>
 
@@ -249,7 +257,7 @@ const Shop = () => {
                       className="flex cursor-pointer items-center gap-2 text-sm text-gray-600"
                     >
                       <input
-                        type="radio"
+                        type="checkbox"
                         name="rating"
                         className="accent-primary"
                       />
@@ -267,6 +275,127 @@ const Shop = () => {
                       <span>& up</span>
                     </label>
                   ))}
+                </div>
+              </div>
+              {/* =========================
+                  Popular Tag
+              ========================= */}
+
+              <div className="border-t border-gray-200 py-5">
+                <button className="flex w-full items-center justify-between">
+                  <span className="font-semibold">Popular Tag</span>
+                  <FaChevronUp size={11} />
+                </button>
+
+                <div className="mt-4 gap-2 flex flex-wrap">
+                  <div>
+                    <input hidden type="checkbox" className="healthy" id="healthyClick" />
+                    <label className="healthyLabel" htmlFor="healthyClick">Healthy</label>
+                  </div>
+                  <div>
+                    <input hidden type="checkbox" className="healthy" id="fat" />
+                    <label className="healthyLabel" htmlFor="fat">Low fat</label>
+                  </div>
+                  <div>
+                    <input hidden type="checkbox" className="healthy" id="vegetarian" />
+                    <label className="healthyLabel" htmlFor="vegetarian">Vegetarian</label>
+                  </div>
+                  <div>
+                    <input hidden type="checkbox" className="healthy" id="food" />
+                    <label className="healthyLabel" htmlFor="food">Kid foods</label>
+                  </div>
+                  <div>
+                    <input hidden type="checkbox" className="healthy" id="vitamin" />
+                    <label className="healthyLabel" htmlFor="vitamin">Vitamins</label>
+                  </div>
+                  <div>
+                    <input hidden type="checkbox" className="healthy" id="bread" />
+                    <label className="healthyLabel" htmlFor="bread">Bread</label>
+                  </div>
+                  <div>
+                    <input hidden type="checkbox" className="healthy" id="meat" />
+                    <label className="healthyLabel" htmlFor="meat">Meat</label>
+                  </div>
+                  <div>
+                    <input hidden type="checkbox" className="healthy" id="snacks" />
+                    <label className="healthyLabel" htmlFor="snacks">Snacks</label>
+                  </div>
+                  <div>
+                    <input hidden type="checkbox" className="healthy" id="tiffin" />
+                    <label className="healthyLabel" htmlFor="tiffin">Tiffin</label>
+                  </div>
+                  <div>
+                    <input hidden type="checkbox" className="healthy" id="launch" />
+                    <label className="healthyLabel" htmlFor="launch">Launch</label>
+                  </div>
+                  <div>
+                    <input hidden type="checkbox" className="healthy" id="dinner" />
+                    <label className="healthyLabel" htmlFor="dinner">Dinner</label>
+                  </div>
+                  <div>
+                    <input hidden type="checkbox" className="healthy" id="breakfast" />
+                    <label className="healthyLabel" htmlFor="breakfast">Breakfast</label>
+                  </div>
+                  <div>
+                    <input hidden type="checkbox" className="healthy" id="fruit" />
+                    <label className="healthyLabel" htmlFor="fruit">Fruit</label>
+                  </div>
+                </div>
+              </div>
+              <Link to="#">
+                <img src={shopdiscount} alt="shopdiscount" />
+              </Link>
+              <div className="">
+                <h4 className="mt-5 mb-3 text-xl font-medium">Sale Products</h4>
+                <div className="flex flex-col gap-4">
+                  <div className="flex border border-[#999999] hover:border-primary rounded-md group">
+                    <img src={redcapsicum} alt="redcapsicum" />
+                    <div className="px-3 py-6">
+                      <h6 className="text-sm font-medium group-hover:text-primary">Red Capsicum</h6>
+                      <p className="text-base">$32.00<span className="text-[#999999] pl-1 line-through">$20.99</span></p>
+                      <p className="flex pt-1.5 text-[#FF8A00]">
+                        <FaStar />
+                        <FaStar />
+                        <FaStar />
+                        <FaStar />
+                        <span className="text-[#999999]">
+                          <FaStar />
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex border border-[#999999] hover:border-primary rounded-md group">
+                    <img src={mango} alt="mango" />
+                    <div className="px-3 py-6">
+                      <h6 className="text-sm font-medium group-hover:text-primary">Chanise Cabbage</h6>
+                      <p className="text-base">$24.00<span className="text-[#999999] pl-1 line-through">$20.99</span></p>
+                      <p className="flex pt-1.5 text-[#FF8A00]">
+                        <FaStar />
+                        <FaStar />
+                        <FaStar />
+                        <FaStar />
+                        <span className="text-[#999999]">
+                          <FaStar />
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex border border-[#999999] hover:border-primary rounded-md group">
+                    <img src={greencapsicum} alt="greencapsicum" />
+                    <div className="px-3 py-6">
+                      <h6 className="text-sm font-medium group-hover:text-primary">Green Capsicum</h6>
+                      <p className="text-base">$24.00<span className="text-[#999999] pl-1 line-through">$20.99</span></p>
+                      <p className="flex pt-1.5 text-[#FF8A00]">
+                        <FaStar />
+                        <FaStar />
+                        <FaStar />
+                        <FaStar />
+                        <span className="text-[#999999]">
+                          <FaStar />
+                        </span>
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </aside>

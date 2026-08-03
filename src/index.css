@@ -107,3 +107,43 @@ body {
   width: 100%;
 }
 
+.freshLabel{
+  position: relative;
+  padding-left: 25px;
+}
+.freshLabel:after{
+  width: 20px;
+  height: 20px;
+  border: 1px solid #CCCCCC;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0px;
+  border-radius: 50%;
+}
+.freshLabel:before{
+  width: 12px;
+  height: 12px;
+  background: transparent;
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  border-radius: 50%;
+}
+.fresh:checked + .freshLabel:before{
+  background: #00B207;
+}
+.fresh:checked + .freshLabel:after{
+  border-color: #00B207;
+}
+.healthyLabel{
+  background: #F2F2F2;
+  padding: 6px 16px;
+  display: inline-block;
+  border-radius: 30px;
+}
+.healthy:checked + .healthyLabel{
+  background: #00B207;
+  color: #ffffff;
+}
