@@ -4,13 +4,13 @@ import axios from "axios";
 import {
   FaChevronDown,
   FaChevronUp,
-  FaFilter,
   FaSearch,
   FaStar,
   FaTimes,
   FaChevronLeft,
   FaChevronRight,
 } from "react-icons/fa";
+import { PiSlidersHorizontal } from "react-icons/pi";
 
 import Container from "../components/layout/Container";
 import ProductCard from "../components/product/ProductCard";
@@ -111,15 +111,10 @@ const Shop = () => {
             {/* Filter Button */}
             <button
               onClick={() => setShowFilter(!showFilter)}
-              className={`flex h-10 items-center gap-2 rounded-full px-5 text-sm font-medium transition ${
-                showFilter
-                  ? "bg-primary text-white"
-                  : "border border-gray-200 bg-white text-gray-700"
-              }`}
+              className="flex h-10 items-center gap-2 rounded-full px-5 text-sm font-medium transition bg-primary text-white"
             >
-              <FaFilter size={13} />
               Filter
-              {showFilter && <FaTimes size={11} />}
+              {showFilter ? <FaTimes size={17} /> : <PiSlidersHorizontal size={20} />}
             </button>
           </div>
 
@@ -161,7 +156,7 @@ const Shop = () => {
           ================================= */}
 
           {showFilter && (
-            <aside className="rounded-lg bg-white py-5 lg:col-span-1">
+            <aside className="rounded-lg bg-white lg:col-span-1">
               {/* Filter Header */}
               <div className="mb-5 flex items-center justify-between">
                 <h2 className="font-semibold text-gray-900">Filters</h2>
