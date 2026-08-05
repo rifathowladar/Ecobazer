@@ -10,6 +10,7 @@ import Shop from './pages/Shop';
 import Error from './pages/Error';
 import Contact from './pages/Contact';
 import Checkout from './pages/Checkout';
+import Details from './pages/Details';
 
 
 const App = () => {
@@ -25,6 +26,7 @@ const App = () => {
           <Route path="/error" element={<Error />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/details" element={<Details />} />
           <Route path="/hw" element={<Hw />} />
         </Route>
       </Routes>

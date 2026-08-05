@@ -62,33 +62,35 @@ const Shop = () => {
   );
 
   const getVisiblePages = () => {
-    if (totalPages <= 7) {
-      return Array.from({ length: totalPages }, (_, i) => i + 1);
-    }
+  if (totalPages <= 7) {
+    return Array.from({ length: totalPages }, (_, i) => i + 1);
+  }
 
-    const pages = [];
+  if (currentPage <= 5) {
+    return [1, 2, 3, 4, 5, "...", totalPages];
+  }
 
-    pages.push(1);
+  if (currentPage >= totalPages - 4) {
+    return [
+      1,
+      "...",
+      totalPages - 4,
+      totalPages - 3,
+      totalPages - 2,
+      totalPages - 1,
+      totalPages,
+    ];
+  }
 
-    if (currentPage > 3) {
-      pages.push("left");
-    }
-
-    const start = Math.max(2, currentPage - 1);
-    const end = Math.min(totalPages - 1, currentPage + 1);
-
-    for (let i = start; i <= end; i++) {
-      pages.push(i);
-    }
-
-    if (currentPage < totalPages - 2) {
-      pages.push("right");
-    }
-
-    pages.push(totalPages);
-
-    return pages;
-  };
+  return [
+    1,
+    "...",
+    currentPage - 1,
+    currentPage,
+    currentPage + 1,
+    totalPages,
+  ];
+};
 
   const goToPage = (page) => {
     setCurrentPage(page);
@@ -129,8 +131,8 @@ const Shop = () => {
               <option value="rating">Rating</option>
             </select>
           </div>
-          <div className="" />
-          <div className="" />
+          <div className="hidden lg:block" />
+          <div className="hidden lg:block" />
           {/* Result */}
           <div className="mb-5 flex items-center justify-between">
             <p className="text-sm text-gray-500">

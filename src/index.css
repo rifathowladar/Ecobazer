@@ -147,3 +147,18 @@ body {
   background: #00B207;
   color: #ffffff;
 }
+.detailsThumbSwiper .swiper-slide {
+  border: 2px solid transparent;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.detailsThumbSwiper .swiper-slide-thumb-active {
+  border-color: #00B207;
+}
+
+.detailsMainSwiper .swiper-slide img {
+  border-radius: 8px;
+}
