@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Container from '../components/layout/Container'
 
 const Checkout = () => {
+  const [payment, setPayment] = useState("");
 
   return (
     <section className="py-16 bg-white">
@@ -159,14 +160,18 @@ const Checkout = () => {
               <div className="border-t border-gray-200 mt-4 pt-4">
                 <h4 className="text-base font-semibold text-gray-800 mb-3">Payment Method</h4>
                 <div className="flex flex-col gap-3">
-                    <label
-                      className="flex items-center gap-2 text-sm text-gray-600 cursor-pointer"
-                    >
-                      <input
-                        type="radio"
-                        className="accent-primary w-4 h-4"
-                      />
-                    </label>
+                  <div>
+                    <input hidden type="checkbox" checked={payment === "cod"} className="fresh" id="cod" onChange={() => setPayment(payment === "cod" ? "" : "cod")} />
+                    <label className="freshLabel" htmlFor="cod">Cash on Delivery</label>
+                  </div>
+                  <div>
+                    <input hidden type="checkbox" className="fresh" id="paypal" checked={payment === "paypal"} onChange={() => setPayment(payment === "paypal" ? "" : "paypal")} />
+                    <label className="freshLabel" htmlFor="paypal">Paypal</label>
+                  </div>
+                  <div>
+                    <input hidden type="checkbox" className="fresh" id="amazon" checked={payment === "amazon"} onChange={() => setPayment(payment === "amazon" ? "" : "amazon")} />
+                    <label className="freshLabel" htmlFor="amazon">Amazon Pay</label>
+                  </div>
                 </div>
               </div>
 
