@@ -1,4 +1,3 @@
-// FeatureBanner.jsx
 import { FiTruck } from "react-icons/fi";
 import { BiHeadphone } from "react-icons/bi";
 import { MdOutlineVerifiedUser } from "react-icons/md";

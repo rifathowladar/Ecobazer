@@ -85,7 +85,7 @@ const Navbar = () => {
                 onMouseLeave={() => setDropdown("")}
                 className="ml-3 md:ml-4 lg:ml-8 relative"
               >
-                <Link className="flex gap-1 items-center hover:text-primary" to="#">
+                <Link className="flex gap-1 items-center hover:text-primary" to="/">
                   Home <FaAngleDown className="text-xs md:text-sm"/>
                 </Link>
 
@@ -107,7 +107,7 @@ const Navbar = () => {
                 onMouseLeave={() => setDropdown("")}
                 className="relative"
               >
-                <Link className="flex gap-1 items-center hover:text-primary" to="#">
+                <Link to="/Shop" className="flex gap-1 items-center hover:text-primary">
                   Shop <FaAngleDown className="text-xs md:text-sm"/>
                 </Link>
 
@@ -166,8 +166,8 @@ const Navbar = () => {
                   </div>
                 )}
               </li>
-              <li><Link className='hover:text-primary' to="#">About Us</Link></li>
-              <li><Link className='hover:text-primary' to="#">Contact Us</Link></li>
+              <li><Link className='hover:text-primary' to="/about">About Us</Link></li>
+              <li><Link className='hover:text-primary' to="/contact">Contact Us</Link></li>
             </ul>
           </div>
           <div className="absolute right-4 top-3 sm:top-4 lg:static block"><Link to="tel:2195550114"><span className='flex text-xs md:text-sm gap-1.5 md:gap-2 hover:text-primary'><FiPhoneCall className='text-lg md:text-2xl'/> (219) 555-0114</span></Link></div>
