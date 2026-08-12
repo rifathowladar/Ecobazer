@@ -195,10 +195,11 @@ const Details = () => {
                 <FaPlus size={12} />
               </button>
             </div>
-
-            <button className='flex-1 min-w-[140px] h-11 flex items-center justify-center gap-x-2 bg-primary text-white font-pop font-medium text-sm rounded-[43px] transition-colors'>
-              Add to Cart
-            </button>
+            <Link to="/cart">
+              <button className='flex-1 min-w-[140px] h-11 flex items-center justify-center gap-x-2 bg-primary text-white font-pop font-medium text-sm rounded-[43px] transition-colors'>
+                Add to Cart
+              </button>
+            </Link>
 
             <button className='w-11 h-11 flex items-center justify-center rounded-full text-[#333333] hover:text-[#ffff] transition-colors hover:bg-primary'>
               <FaHeart />
