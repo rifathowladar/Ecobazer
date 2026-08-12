@@ -107,7 +107,7 @@ const Navbar = () => {
                 onMouseLeave={() => setDropdown("")}
                 className="relative"
               >
-                <Link to="/Shop" className="flex gap-1 items-center hover:text-primary">
+                <Link to="/shop" className="flex gap-1 items-center hover:text-primary">
                   Shop <FaAngleDown className="text-xs md:text-sm"/>
                 </Link>
 
