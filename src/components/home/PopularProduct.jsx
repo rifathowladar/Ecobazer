@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import Container from "../../components/layout/Container";
 import ProductCard from "./ProductCard";
 
@@ -16,10 +17,9 @@ const PopularProduct = ({ products, title ,shop = false }) => {
                 : "lg:grid-cols-5"
             }`}>
                 {products.map((item) => (
-                <ProductCard
-                    key={item.id}
-                    item={item}
-                />
+                    <Link to="/details">
+                        <ProductCard key={item.id} item={item} />
+                    </Link>
                 ))}
             </div>
         </section>

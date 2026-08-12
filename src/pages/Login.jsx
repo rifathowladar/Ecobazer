@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router'
-import Forgot from './Forgot';
+import Forgot from './Forget';
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa6";
 
@@ -18,11 +18,10 @@ const Login = () => {
       </div>
       <div className="flex justify-between my-4">
         <div className="flex items-center my-4 text-[#808080]">
-          <input type="checkbox" className="mr-2"/>
-          <label className="text-sm">Remember me</label>
+          <label className="text-sm"><input type="checkbox" className="mr-2"/> Remember me</label>
         </div>
         <p className="text-center text-sm text-[#808080]">
-          <Link to="/forget-password" className="text-primary cursor-pointer">Forget Password</Link>
+          <Link to="/forget" className="text-primary cursor-pointer">Forget Password</Link>
         </p>
       </div>
       <button className="w-full bg-primary text-white py-3.5 rounded-full text-sm">Login</button>

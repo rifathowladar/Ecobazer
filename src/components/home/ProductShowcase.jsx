@@ -1,6 +1,7 @@
 import React from 'react'
 import Container from '../../components/layout/Container'
 import Banner1 from '../../assets/image/Banner3.webp'
+import beverages from '../../assets/image/beverages.webp'
 import { FaArrowRight, FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { Link } from 'react-router';
 
@@ -53,7 +54,7 @@ const ProductShowcase = ({ allData,
                                 key={idx}
                                 className="w-full border border-gry hover:border-primary hover:text-primary p-4 lg:p-6 rounded-md relative group duration-300 text-xs sm:text-base"
                             >
-                                <img src={Banner1} alt='banner' />
+                                <img src={beverages} alt='beverages' />
                                 {item.price
                                     ? <h3 className='pt-4'>{(item.name || item.title).slice(0, 16)}...</h3>
                                     : <h3 className='pt-4'>{item.name || item.title}</h3>}
@@ -76,7 +77,7 @@ const ProductShowcase = ({ allData,
                                         isNearRightEdge ? "right-[-9px]" : "left-[-9px]"
                                         } ${isBottomRow ? "bottom-[-9px]" : "top-[-9px]"}`}
                                     >
-                                        <img src={Banner1} alt="" />
+                                        <img src={beverages} alt="beverages" />
 
                                         <h3 className="pt-4 text-lg font-medium">
                                         {item.name || item.title}

@@ -134,7 +134,7 @@ const Checkout = () => {
                         className="w-8 h-8 rounded-full object-cover"
                       />
                       <span className="text-sm text-gray-700">
-                        A<span className="text-gray-400">x</span>
+                        Green Capsicum
                       </span>
                     </div>
                     <span className="text-sm text-gray-700">$110</span>

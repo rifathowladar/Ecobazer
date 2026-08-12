@@ -256,7 +256,7 @@ const Shop = () => {
                       <input
                         type="checkbox"
                         name="rating"
-                        className="accent-primary"
+                        className="accent-[#2C742F]"
                       />
                       <span className="flex items-center gap-0.5">
                         {Array.from({ length: 5 }).map((_, i) => (
@@ -413,9 +413,11 @@ const Shop = () => {
                   ? "grid-cols-1 md:grid-cols-3"
                   : "grid-cols-1 md:grid-cols-3 xl:grid-cols-4"
               }`}
-            >
+              >
               {currentProducts.map((product) => (
-                <ProductCard key={product.id} product={product} />
+                <Link to="/details">
+                  <ProductCard key={product.id} product={product} />
+                </Link>
               ))}
             </div>
 

@@ -12,6 +12,10 @@ import Contact from './pages/Contact';
 import Checkout from './pages/Checkout';
 import Details from './pages/Details';
 import About from './pages/About';
+import Cart from './pages/Cart';
+import Forget from './pages/Forget';
+import Reset from './pages/Reset';
+import Wishlist from './pages/Wishlist';
 
 
 const App = () => {
@@ -24,11 +28,15 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/category" element={<Category />} />
           <Route path="/Shop" element={<Shop />} />
-          <Route path="/error" element={<Error />} />
+          <Route path="*" element={<Error />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/details" element={<Details />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/wishlist" element={<Wishlist />} />
+          <Route path="/reset" element={<Reset />} />
+          <Route path="/forget" element={<Forget />} />
           <Route path="/hw" element={<Hw />} />
         </Route>
       </Routes>

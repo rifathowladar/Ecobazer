@@ -17,8 +17,12 @@ const LatestNews = () => {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 my-5 sm:my-15">
             <div className="shadow-md rounded hover:scale-102 transition duration-300 group">
-                <div className="">
+                <div className="relative">
                     <img src={News1} className="w-full" alt="News1" />
+                    <div className="absolute bottom-6 left-6 bg-gray-200 group-hover:bg-white px-4 py-2 rounded">
+                        <span className="block text-xl font-medium">11</span>
+                        <span className="block text-gray-500 text-xs font-medium">Nov</span>
+                    </div>
                 </div>
                 <div className="m-6">
                     <div className="flex gap-3 sm:gap-5 text-gray-600 text-xs sm:text-base">
@@ -35,8 +39,12 @@ const LatestNews = () => {
                 </div>
             </div>
             <div className="shadow-md rounded hover:scale-102 transition duration-300 group">
-                <div className="">
+                <div className="relative">
                     <img src={News2} className="w-full" alt="News2" />
+                    <div className="absolute bottom-6 left-6 bg-gray-200 group-hover:bg-white px-4 py-2 rounded">
+                        <span className="block text-xl font-medium">29</span>
+                        <span className="block text-gray-500 text-xs font-medium">JAN</span>
+                    </div>
                 </div>
                 <div className="m-6">
                     <div className="flex gap-3 sm:gap-5 text-gray-600 text-xs sm:text-base">
@@ -53,8 +61,12 @@ const LatestNews = () => {
                 </div>
             </div>
             <div className="shadow-md rounded hover:scale-102 transition duration-300 group">
-                <div className="">
+                <div className="relative">
                     <img src={News3} className="w-full" alt="News3" />
+                    <div className="absolute bottom-6 left-6 bg-gray-200 group-hover:bg-white px-4 py-2 rounded">
+                        <span className="block text-xl font-medium">21</span>
+                        <span className="block text-gray-500 text-xs font-medium">NEB</span>
+                    </div>
                 </div>
                 <div className="m-6">
                     <div className="flex gap-3 sm:gap-5 text-gray-600 text-xs sm:text-base">

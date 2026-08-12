@@ -137,8 +137,10 @@ const Navbar = () => {
                   <div className="absolute top-full left-0 pt-4.5 md:pt-5.5 z-50">
                     <div className="w-18 md:w-20 bg-white rounded shadow-2xl overflow-hidden">
                       <ul className="space-y-1.5 text-gray-700">
-                        <Link to="#"><li className="homedropup">Pages 2</li></Link>
-                        <Link to="#"><li className="homedropup">Pages 2</li></Link>
+                        <Link to="/checkout"><li className="homedropup">Checkout</li></Link>
+                        <Link to="/error"><li className="homedropup">Error</li></Link>
+                        <Link to="/details"><li className="homedropup">Details</li></Link>
+                        <Link to="/cart"><li className="homedropup">Cart</li></Link>
                       </ul>
                     </div>
                   </div>
