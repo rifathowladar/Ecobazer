@@ -8,8 +8,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/scrollbar';
 import { Navigation, Autoplay, Pagination, Mousewheel, Scrollbar} from 'swiper/modules';
-import { FiArrowLeftCircle, FiArrowRightCircle } from "react-icons/fi";
-
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 const Banner = () => {
   let slider1 = {
@@ -21,7 +20,7 @@ const Banner = () => {
     },
     loop: true,
     autoplay : {
-      delay: 1000,
+      delay: 1500,
       disableOnInteraction: false,
     },
     pagination: {
@@ -74,10 +73,10 @@ const Banner = () => {
                 <SwiperSlide><Link to="#"><img src={Banner3} className="w-full" alt="banner3" /></Link></SwiperSlide>
               </Swiper>
               <div className="prev-arrow absolute top-[50%] left-[10px] z-30 w-7 h-7 sm:h-12.5 sm:w-12.5 text-sm sm:text-3xl">
-                <FiArrowLeftCircle/>
+                <FaArrowLeft/>
               </div>
               <div className="next-arrow absolute top-[50%] right-[10px] z-30 w-7 h-7 sm:h-12.5 sm:w-12.5 text-sm sm:text-3xl">
-                <FiArrowRightCircle/>
+                <FaArrowRight/>
               </div>
             </div>
             <div className="hidden sm:block max-w-105.75">
