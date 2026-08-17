@@ -1,0 +1,1 @@
+Navbar footer fixed, infinite product, kon kichu local run koriye global kivabe korbo

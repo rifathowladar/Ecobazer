@@ -94,7 +94,7 @@ const Details = () => {
                       <img
                         src={img}
                         alt={`Thumb ${index + 1}`}
-                        className="w-full h-[300px] object-cover"
+                        className="w-full h-75 object-cover"
                       />
                     </div>
                   </SwiperSlide>
@@ -145,11 +145,11 @@ const Details = () => {
             <div className='flex flex-wrap items-center relative mt-2 gap-y-2'>
               <p className='flex items-center text-[#FF8A00]'>
                 <FaStar /><FaStar /><FaStar /><FaStar /><FaStar />
-                <span className='text-[#666666] font-pop font-normal text-[14px] ml-1'>4 Review</span>
+                <span className='text-grydp font-pop font-normal text-[14px] ml-1'>4 Review</span>
               </p>
               <span className='bg-[#B3B3B3] w-1.5 h-1.5 rounded-full mx-3'></span>
               <p className='font-medium text-sm text-[#333333]'>
-                SKU: <span className='font-normal text-sm text-[#666666]'>2,51,594</span>
+                SKU: <span className='font-normal text-sm text-grydp'>2,51,594</span>
               </p>
             </div>
           </div>
