@@ -1,1 +1,1 @@
-Navbar footer fixed, infinite product, kon kichu local run koriye global kivabe korbo
+Navbar footer fixed, infinite product, kon kichu local run koriye global kivabe korbo , Breadcrumb page active link , facebook bottom Navbar upore scroll hole show korbe default hidden
